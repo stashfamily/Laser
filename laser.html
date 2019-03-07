@@ -3,17 +3,6 @@
 <!-- Help and FAQ: themes.stashfamily.com/help -->
 <!-- Download: themes.stashfamily.com/themes/laser -->
 
-<!-- 
-
-
-    Newest Update:
-
-    - Infinite scroll added.
-    - Scrollbar on text posts.
-    - Finessed the banner, scrolling to posts works perfectly now.
-    
-    
--->
 
 <html xmlns="https://www.w3.org/1999/xhtml">
 <head>
@@ -265,7 +254,7 @@
 
     
 
-    <link href="https://static.tumblr.com/jzzkxgh/nJypo0f41/core.css" rel="stylesheet">
+    <link href="https://static.tumblr.com/jzzkxgh/9wRpo0gj7/core.css" rel="stylesheet">
     
     <style type="text/css">
         
@@ -458,12 +447,12 @@
                 color:{color:Banner Text};
             }
             
-            body.permalink #header .logo a {
+            body.permalink .logo a {
                 color:{color:Text};
             }
             
             {block:ifnotlogo}
-                body.index-page #header .logo {
+                body.index-page .logo {
                     display:none !important;
                 }
             {/block:ifnotlogo}
@@ -892,7 +881,7 @@
             font-size:{text:Banner Title Size};
         }
         
-        #header .logo a, .preloader-logo {
+        .logo a, .preloader-logo {
             font:{select:Logo Font Weight} {text:Logo Size} {block:IfLogoFont}"{text:Logo Font}",{/block:IfLogoFont} "{select:Font}", Helvetica Neue, Arial, sans-serif;
             
             {block:IfTypeKitLogoFont}
@@ -930,7 +919,7 @@
                 background: {color:Background};
             }
         
-            #header .logo a {
+            .logo a {
                 font:{select:Logo Font Weight} 19px/30px {block:IfLogoFont}"{text:Logo Font}",{/block:IfLogoFont} "{select:Font}", Helvetica Neue, Arial, sans-serif;
 
                 {block:IfTypeKitLogoFont}
