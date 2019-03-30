@@ -2082,7 +2082,7 @@
             {block:IndexPage}
                 $antsIsoCont = $('#stash-ants');
                 antsIsotope = $antsIsoCont.imagesLoaded(function(){
-                    // $("article").fitVids();
+                    $("article").fitVids();
                     $('.stash-photoset.ips').stashIPS();
                     
                     if($(".post-photo").length > 0){ 
@@ -2174,6 +2174,9 @@
                         scene.setTween(TweenMax.fromTo(currentPost, 0.4, { autoAlpha:0, ease: Expo.easeInOut},{autoAlpha:1, ease: Power2.easeInOut, force3D: true, className:"+=scrolled"}));
                     });
                         
+                    $('.stash-photoset.ips').stashIPS();
+                    $("article").fitVids();
+                        
                     $container.isotope( 'appended', $newElems, true );
                     postsLoading = false;
                     // TweenMax.fromTo(".loading-overlay", 1.2, {autoAlpha:1, xPercent:0, ease:Expo.easeInOut, force3D: true},{autoAlpha:0, xPercent:100, ease:Expo.easeInOut, force3D: true});
@@ -2208,9 +2211,7 @@
                         $('#stash-ants').isotope(true).isotope('layout');
                     }, 5500);
                     
-                    $('.stash-photoset.ips').stashIPS();
                     firstPostsLoad = true;
-                    // $("article").fitVids();
                 });
 
                 $( "li.post-like" ).each(function( index ) {
