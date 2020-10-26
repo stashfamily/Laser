@@ -1,7 +1,14 @@
 <!DOCTYPE html>
-<!-- Laser  -->
-<!-- Help and FAQ: themes.stashfamily.com/help -->
-<!-- Download: themes.stashfamily.com/themes/laser -->
+
+<!-- 
+
+    Laser v2 Platinum
+    by: Stashthemes
+    
+    Updates:
+        - Instagram Feed added (Instagram Username method)
+
+-->
 
 
 <html xmlns="https://www.w3.org/1999/xhtml">
@@ -32,6 +39,9 @@
         <meta name="color:Preloader Background" content="#000000">
         <meta name="color:Preloader Text" content="#ffffff">
         <meta name="if:Repeat Background Image" content="0">
+        
+        <meta name="text:Instagram Username" content="" />
+        <meta name="text:Instagram Feed Photo Count" content="6" />
         
         <!-- Header & Links -->
         <meta name="if:Logo" content="1"/>
@@ -97,11 +107,17 @@
         <meta name="if:Show Post Meta" content="1"/>
         <meta name="if:Show Post Date" content="0"/>
         <meta name="if:Show Post Share" content="1"/>
+        <meta name="if:Show Post Like" content="1" />
+        <meta name="if:Show Post Reblog" content="1" />
         <meta name="if:Show Post Note Count" content="1"/>
         <meta name="if:Show Post Notes" content="0"/>
         <meta name="if:Scrollbar" content="1"/>
         <meta name="if:Modal Post" content="1"/>
         <meta name="if:High Quality Images" content="1"/>
+        
+        <meta name="if:Instagram Feed Show Description" content="1" />
+        <meta name="if:Instagram Feed Show Avatar" content="1" />
+        
         <meta name="if:Random Link" content="0"/>    
         <meta name="if:Archive Link" content="0"/>   
         <meta name="if:RSS Link" content="0"/> 
@@ -166,10 +182,6 @@
         <!-- Social Widgets -->
         <meta name="text:Sidebar Text Size" content="14px"/>
         <meta name="text:Sidebar Title Text Size" content="18px"/>
-        <meta name="text:Instagram Widget Title" content="Instagram">
-        <meta name="text:Instagram Widget Feed Count" content="8">
-        <meta name="text:Instagram Widget Access Token" content="">
-        <meta name="text:Instagram Widget UserID" content="">
         <meta name="text:Flickr Widget Title" content="Flickr">
         <meta name="text:Flickr User ID" content="">
         <meta name="text:Flickr Widget Feed Count" content="8">
@@ -177,8 +189,6 @@
         <meta name="text:Dribbble Widget Access Token" content="">
         <meta name="text:Dribbble Widget Username" content="">
         <meta name="text:Dribbble Widget Feed Count" content="8">
-        <meta name="text:Twitter Widget Title" content="Twitter">
-        <meta name="text:Twitter Widget Feed Count" content="4">
         
         <meta name="text:Sidebar Text Widget Title" content="">
         <meta name="text:Sidebar Text Widget" content="">
@@ -256,7 +266,7 @@
 
     
 
-    <link href="https://static.tumblr.com/jzzkxgh/8xppoe5bs/core.css" rel="stylesheet">
+    <link href="https://static.tumblr.com/jzzkxgh/DyEqitw60/core.css" rel="stylesheet">
     
     <style type="text/css">
         
@@ -767,10 +777,22 @@
         {/block:IfNotShowPostMeta}
       
         {block:IfNotShowPostShare}
-            #stash-ants .post .post-share-parent, .stash-show-share {
+            #stash-ants .post .post-share-parent, .stash-show-share, .overlay .post-footer .share-toggle {
                 display:none;
             }
         {/block:IfNotShowPostShare}
+        
+        {block:IfNotShowPostLike}
+            .post-like, .overlay .post-footer .post-like {
+                display:none !important;
+            }
+        {/block:IfNotShowPostLike}
+        
+        {block:IfNotShowPostReblog}
+            .post-reblog, .overlay .post-footer .post-reblog {
+                display:none !important;
+            }
+        {/block:IfNotShowPostReblog}
 
         {block:IfNotShowPostDate}
             .meta-date, .meta time {
@@ -1030,14 +1052,19 @@
             font-size: 14px;
             text-align: left;
             line-height: 1;
-            font-family: "HelveticaNeue-CondensedBold", "HelveticaNeueBoldCondensed", "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed", "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold",Helvetica Neue, Arial, sans-serif;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
             z-index: 999999;
             width:100%;
-            max-width:360px;
+            max-width:240px;
             opacity:0;
             visibility:hidden;
             transform:translateY(100%);
             transition:all 0.3s ease;
+            opacity:0.5;
+        }
+        
+        .demo-note:hover {
+            opacity:1;
         }
         
         .demo-note.visible {
@@ -1048,7 +1075,7 @@
         
         .demo-note nav {
             text-transform:uppercase;
-            font-size:13px;
+            font-size:16px;
         }
         
         .demo-note nav ul {
@@ -1059,7 +1086,7 @@
         .demo-note nav ul li {
             float:left;
             list-style:none;
-            width:50%;
+            width:100%;
         }
         
         .demo-note nav ul li a {
@@ -1073,17 +1100,17 @@
         }
         
         .demo-note nav .im {
-            font-size:9px;
+            font-size:11px;
             margin-left:3px;
             transition:all 0.2s;
         }
         
         .get-started-toggle {
-            background:url('https://static.tumblr.com/jzzkxgh/8xOot2lsl/get-started.gif');
+            background:url('https://static.tumblr.com/jzzkxgh/Nn0qi7lym/glitter-og.gif');
         }
         
         .get-started-toggle a {
-            color:black;
+            color:white;
         }
         
         .demo-toggle.open .im {
@@ -1092,8 +1119,12 @@
         }
         
         .remove-stash-credit {
-            background:url('https://static.tumblr.com/jzzkxgh/dr5ot2lss/remove-stash-credit.gif');
-            color: white;
+            background:white url('https://static.tumblr.com/jzzkxgh/Ud7ppcbpu/remove-stash-credit.gif');
+            background-position:center center;
+        }
+        
+        .remove-stash-credit a {
+            color:black;
         }
 
         .remove-stash-credit a:hover {
@@ -1110,7 +1141,7 @@
         }
 
         .demo-overlay.open {
-            margin-top:28px;
+            margin-top:10px;
             height:auto;
             -webkit-transition:all 0.8s ease;
             transition:all 0.8s ease;
@@ -1121,7 +1152,7 @@
         
         .demo-overlay p {
             margin-bottom:10px;
-            font-size:12px;
+            font-size:13px;
             line-height:1.3;
         }
         
@@ -1133,30 +1164,16 @@
             margin-top: 6px;
             max-width:95%;
         }
+        
+        body.tagged-page .post {
+            opacity:1;
+            visibility:visible;
+        }
+          
     </style>
 
 </head>
 <body class="{block:IndexPage}index-page index {/block:IndexPage}{block:TagPage}tagged-page {/block:TagPage}{block:PermalinkPage}permalink post-page {/block:PermalinkPage} post-columns-two {block:ifbanner} has-banner {block:IfBannerVimeoVideoID}has-vimeo-video {/block:IfBannerVimeoVideoID} {block:ifmobilebannerbackgroundimage}has-mobile-banner-image {/block:ifmobilebannerbackgroundimage}{/block:ifbanner} {block:ifnotheader}no-header {/block:ifnotheader}">
-        
-        <div class='customize-demo demo-note'>
-            <nav class="cl">
-                <ul>
-                    <li class="get-started-toggle demo-toggle"><a>Get Started <i class="im im-angle-down"></i></a></li>
-                    <li class="remove-stash-credit demo-toggle"><a>Remove Stash Credit <i class="im im-angle-down"></i></a></li>
-                </ul> 
-            </nav>
-            
-            <div class="get-started-overlay demo-overlay">
-                <p>1. On the Customize screen turn off the Use default mobile theme option under Advanced Options. </br><img src="https://static.tumblr.com/jzzkxgh/o2Yoomruj/default_mobile_theme.png"/></p>
-                <p>2. Remove the stash logo from your website by getting a <a href="https://themes.stashfamily.com/add-ons/full-license" target="_blank">Full License</a>.</p>
-                <p>3. For the Instagram feed generate your <a href="https://themes.stashfamily.com/instagram" target="_blank">Access Token & User ID here</a>.</p>
-                <p>4. If you still need help check out our <a href="https://themes.stashfamily.com/help/" target="_blank">help section</a> or the <a href="https://themes.stashfamily.com/docs/laser/" target="_blank">theme documentation</a>.</p>
-            </div>
-            
-            <div class="remove-stash-overlay demo-overlay">
-                <p>To remove the Stash logo from your theme you will need a <a href="https://themes.stashfamily.com/add-ons/full-license/">Full License</a>.</p>
-            </div>
-        </div>
 
         <div id="stash-preloader">
             <div id="stash-loader"><div class="loading-icon"></div></div>
@@ -1339,15 +1356,9 @@
         </svg>
     </div>
 
-    <div class="stash-credit">
-        <a href="https://themes.stashfamily.com/themes/laser" target="_blank">
-            <svg width="75px" height="21px" viewBox="0 0 87 15" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
-                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                    <path d="M0.696,10.1241072 C0.873715092,11.7630353 1.44635261,12.6121185 2.86807334,13.3822172 C4.19106347,14.1128237 6.32364457,14.488 9.14733992,14.488 C15.0514302,14.488 17.8751255,12.9872948 17.8751255,9.8476615 C17.8751255,8.20873343 17.0457884,7.02396615 15.4463526,6.41183639 C14.3208237,5.99716784 13.6494556,5.85894499 11.3194133,5.62199154 C7.25171227,5.20732299 6.8172976,5.08884626 6.8172976,4.43722426 C6.8172976,3.90407898 7.46891961,3.56839492 8.51546403,3.56839492 C9.81870804,3.56839492 10.5690606,3.94357123 10.8849986,4.77290832 L17.460457,4.77290832 C17.0457884,3.23271086 16.5521354,2.48235825 15.4660987,1.79124401 C14.1233625,0.922414669 12.0500197,0.488 9.24607052,0.488 C3.71715656,0.488 0.814476728,2.04794358 0.814476728,5.0296079 C0.814476728,6.64878984 1.70305219,7.813811 3.34198025,8.32721016 C4.38852468,8.68264034 6.00770663,8.99857828 7.48866573,9.13680113 C10.5493145,9.43299295 10.8060141,9.47248519 11.2206827,9.59096192 C11.6353512,9.70943865 11.8328124,9.90689986 11.8328124,10.2820762 C11.8328124,10.8349676 11.2206827,11.1311594 10.0359154,11.1311594 C8.79190973,11.1311594 8.14028773,10.8547137 7.68612694,10.1241072 L0.696,10.1241072 Z M23.6804852,14.0733315 L28.7157461,14.0733315 L28.7157461,4.25950917 L33.7904993,4.25950917 L33.7904993,0.902668547 L18.6649704,0.902668547 L18.6649704,4.25950917 L23.6804852,4.25950917 L23.6804852,14.0733315 Z M33.8497377,14.0733315 L39.121952,0.902668547 L45.7763949,0.902668547 L51.0486093,14.0733315 L45.5394415,14.0733315 L44.9865501,12.8688181 L39.6156051,12.8688181 L39.121952,14.0733315 L33.8497377,14.0733315 Z M40.5239267,9.51197743 L43.999244,9.51197743 L42.3010776,4.67417772 L40.5239267,9.51197743 Z M51.483024,10.1241072 C51.6607391,11.7630353 52.2333766,12.6121185 53.6550973,13.3822172 C54.9780874,14.1128237 57.1106685,14.488 59.9343639,14.488 C65.8384542,14.488 68.6621495,12.9872948 68.6621495,9.8476615 C68.6621495,8.20873343 67.8328124,7.02396615 66.2333766,6.41183639 C65.1078477,5.99716784 64.4364795,5.85894499 62.1064372,5.62199154 C58.0387362,5.20732299 57.6043216,5.08884626 57.6043216,4.43722426 C57.6043216,3.90407898 58.2559436,3.56839492 59.302488,3.56839492 C60.605732,3.56839492 61.3560846,3.94357123 61.6720226,4.77290832 L68.247481,4.77290832 C67.8328124,3.23271086 67.3391594,2.48235825 66.2531227,1.79124401 C64.9103865,0.922414669 62.8370437,0.488 60.0330945,0.488 C54.5041805,0.488 51.6015007,2.04794358 51.6015007,5.0296079 C51.6015007,6.64878984 52.4900762,7.813811 54.1290042,8.32721016 C55.1755487,8.68264034 56.7947306,8.99857828 58.2756897,9.13680113 C61.3363385,9.43299295 61.5930381,9.47248519 62.0077066,9.59096192 C62.4223752,9.70943865 62.6198364,9.90689986 62.6198364,10.2820762 C62.6198364,10.8349676 62.0077066,11.1311594 60.8229394,11.1311594 C59.5789337,11.1311594 58.9273117,10.8547137 58.4731509,10.1241072 L51.483024,10.1241072 Z M70.538031,14.0733315 L75.573292,14.0733315 L75.573292,8.89984767 L81.4576361,8.89984767 L81.4576361,14.0733315 L86.492897,14.0733315 L86.492897,0.902668547 L81.4576361,0.902668547 L81.4576361,5.54300705 L75.573292,5.54300705 L75.573292,0.902668547 L70.538031,0.902668547 L70.538031,14.0733315 Z" fill="{color:Text}"></path>
-                </g>
-            </svg>
-        </a>
-    </div>
+    <a href="https://themes.stashfamily.com/themes/laser/" class="stash-credit" target="_blank">
+        Theme by</br><svg width="75px" height="10px" viewBox="0 0 75 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><path d="M11.5694444,3.72222222 C12.4675971,3.72222222 13.1203683,3.95833097 13.5277778,4.43055556 C13.9351872,4.90278014 14.1388889,5.51851472 14.1388889,6.27777778 L14.1388889,7.43055556 C14.1388889,7.74537194 14.0879635,8.05555403 13.9861111,8.36111111 C13.8842588,8.66666819 13.7291677,8.9421284 13.5208333,9.1875 C13.312499,9.4328716 13.0486127,9.62962889 12.7291667,9.77777778 C12.4097206,9.92592667 12.0231504,10 11.5694444,10 L0.236111111,10 L0.236111111,7.18055556 L9.75,7.18055556 C10.0185199,7.18055556 10.1898144,7.13194493 10.2638889,7.03472222 C10.3379633,6.93749951 10.375,6.82870431 10.375,6.70833333 C10.375,6.59722167 10.3379633,6.49537083 10.2638889,6.40277778 C10.1898144,6.31018472 10.0185199,6.26388889 9.75,6.26388889 L2.56944444,6.26388889 C2.21759083,6.26388889 1.88426083,6.21064868 1.56944444,6.10416667 C1.25462806,5.99768465 0.981482639,5.84722319 0.75,5.65277778 C0.518517361,5.45833236 0.335648819,5.22685319 0.201388889,4.95833333 C0.0671289583,4.68981347 0,4.38889056 0,4.05555556 L0,2.44444444 C0,2.09259083 0.0671289583,1.76620521 0.201388889,1.46527778 C0.335648819,1.16435035 0.518517361,0.905093681 0.75,0.6875 C0.981482639,0.469906319 1.25462806,0.300926528 1.56944444,0.180555556 C1.88426083,0.0601845833 2.21759083,0 2.56944444,0 L13.6388889,0 L13.6388889,2.81944444 L4.38888889,2.81944444 C4.12036903,2.81944444 3.94907444,2.86342549 3.875,2.95138889 C3.80092556,3.03935229 3.76388889,3.14351792 3.76388889,3.26388889 C3.76388889,3.37500056 3.80092556,3.47916618 3.875,3.57638889 C3.94907444,3.6736116 4.12036903,3.72222222 4.38888889,3.72222222 L11.5694444,3.72222222 Z M29.1805556,0 L29.1805556,3.09722222 L24.1388889,3.09722222 L24.1388889,10 L20.2361111,10 L20.2361111,3.09722222 L15.1111111,3.09722222 L15.1111111,0 L29.1805556,0 Z M33.9722222,5.68055556 L36.0555556,5.68055556 L37.7361111,8.76388889 L32.2638889,8.76388889 L31.5833333,10 L27.4444444,10 L33.1944444,0 L38.0972222,0 L43.8472222,10 L39.7083333,10 L35.6388889,2.66666667 L33.9722222,5.68055556 Z M56.3194444,3.72222222 C57.2175971,3.72222222 57.8703683,3.95833097 58.2777778,4.43055556 C58.6851872,4.90278014 58.8888889,5.51851472 58.8888889,6.27777778 L58.8888889,7.43055556 C58.8888889,7.74537194 58.8379635,8.05555403 58.7361111,8.36111111 C58.6342588,8.66666819 58.4791677,8.9421284 58.2708333,9.1875 C58.062499,9.4328716 57.7986127,9.62962889 57.4791667,9.77777778 C57.1597206,9.92592667 56.7731504,10 56.3194444,10 L44.9861111,10 L44.9861111,7.18055556 L54.5,7.18055556 C54.7685199,7.18055556 54.9398144,7.13194493 55.0138889,7.03472222 C55.0879633,6.93749951 55.125,6.82870431 55.125,6.70833333 C55.125,6.59722167 55.0879633,6.49537083 55.0138889,6.40277778 C54.9398144,6.31018472 54.7685199,6.26388889 54.5,6.26388889 L47.3194444,6.26388889 C46.9675908,6.26388889 46.6342608,6.21064868 46.3194444,6.10416667 C46.0046281,5.99768465 45.7314826,5.84722319 45.5,5.65277778 C45.2685174,5.45833236 45.0856488,5.22685319 44.9513889,4.95833333 C44.817129,4.68981347 44.75,4.38889056 44.75,4.05555556 L44.75,2.44444444 C44.75,2.09259083 44.817129,1.76620521 44.9513889,1.46527778 C45.0856488,1.16435035 45.2685174,0.905093681 45.5,0.6875 C45.7314826,0.469906319 46.0046281,0.300926528 46.3194444,0.180555556 C46.6342608,0.0601845833 46.9675908,0 47.3194444,0 L58.3888889,0 L58.3888889,2.81944444 L49.1388889,2.81944444 C48.870369,2.81944444 48.6990744,2.86342549 48.625,2.95138889 C48.5509256,3.03935229 48.5138889,3.14351792 48.5138889,3.26388889 C48.5138889,3.37500056 48.5509256,3.47916618 48.625,3.57638889 C48.6990744,3.6736116 48.870369,3.72222222 49.1388889,3.72222222 L56.3194444,3.72222222 Z M74.7916667,0 L74.7916667,10 L70.8888889,10 L70.8888889,6.54166667 L66.5694444,6.54166667 L64.875,3.44444444 L70.8888889,3.44444444 L70.8888889,0 L74.7916667,0 Z M64.4583333,0 L64.4583333,10 L60.5555556,10 L60.5555556,0 L64.4583333,0 Z"  fill="#FFFFFF"></path></g></svg>
+    </a>
     
     
     <div class="post-navigation stash-navigation">
@@ -1379,7 +1390,7 @@
         </div>
     </div>
         
-    <div id="sidebar" class="{block:IfInstagramWidgetUserID}has-instagram {/block:IfInstagramWidgetUserID}">        
+    <div id="sidebar">        
 
     <div class="inner animated slow">
         <div class="sidebar-bg"></div>
@@ -1542,19 +1553,11 @@
                     </div>
                 {/block:ifsidebarimagead4image}
                 
-                {block:IfInstagramWidgetUserID}
-                    <div class="instagram widget cl"> 
-                        <h3>{block:ifInstagramURL}<a href="{text:Instagram URL}">{/block:ifInstagramURL}{text:Instagram Widget Title}{block:ifInstagramURL}</a>{/block:ifInstagramURL}</h3> 
-                        <ul id="instafeed" class="instagram-feed social-widget"></ul> 
+                {block:IfInstagramUsername}
+                    <div id="instagram-feed" class="widget">
+                        
                     </div>
-                {/block:IfInstagramWidgetUserID}
-            
-                {block:Twitter}
-                    <div class="twitter widget cl">
-                        <h3>{text:Twitter Widget Title}</h3>
-                        <ul id="twitter" class="twitter-feed-widget"></ul>
-                    </div>
-                {/block:Twitter}
+                {/block:IfInstagramUsername}
                 
                 {block:IfFlickrUserID}
                     <div class="flickr widget cl"> <h3>{text:Flickr Widget Title}</h3> <ul class="flickr-feed social-widget"></ul> </div>
@@ -2034,11 +2037,11 @@
     
     <!-- Header Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <script type="text/javascript" src="https://static.tumblr.com/jzzkxgh/uCJorzz0k/plugins.js">
+    <script type="text/javascript" src="https://static.tumblr.com/jzzkxgh/x2Kqitw65/plugins.js">
     </script>
 
-    <script type="text/javascript" src="https://static.tumblr.com/jzzkxgh/RIqpo0f45/laser.js"></script>
-    {block:IfModalPost}<script src="https://static.tumblr.com/jzzkxgh/YB0pomts8/modal.js"></script>{/block:IfModalPost}
+    <script type="text/javascript" src="https://static.tumblr.com/jzzkxgh/0Jhqitwh5/laser.js"></script>
+    {block:IfModalPost}<script src="https://static.tumblr.com/jzzkxgh/gGHq84cje/modal.js"></script>{/block:IfModalPost}
 
     {block:IfTypeKitID}
         <!-- Typekit -->
@@ -2298,25 +2301,8 @@
             '</li>'
             });
         {/block:IfFlickrUserID}  
-        
-        {block:Twitter}
-           function recent_tweets(data) {
-              for (i=0; i<{text:Twitter Widget Feed Count}; i++) {
-                document.getElementById("twitter").innerHTML =
-                  document.getElementById("twitter").innerHTML +
-                  '<li class="tweet"><p>' + twttr.txt.autoLink( data[i].text )  +
-                  // &mdash;
-                  '<abbr> <a href="https://twitter.com/{TwitterUsername}/status/' +
-                  (data[i].id_str ? data[i].id_str : data[i].id) +
-                  '" target="_blank">' + moment.utc(data[i].created_at).fromNow() + ' </abbr></a></p></li>';
-              }
-            }
-        {/block:Twitter}
-        
-        {block:IfInstagramWidgetUserID}
-        var userFeed = new Instafeed({get:"user",userId:{text:Instagram Widget UserID},resolution:"standard_resolution", limit:{text:Instagram Widget Feed Count},accessToken:"{text:Instagram Widget Access Token}"});userFeed.run();
-        {/block:IfInstagramWidgetUserID}  
-        
+
+
         {block:IfDribbbleWidgetAccessToken}
         $.jribbble.setToken('{text:Dribbble Widget Access Token}');
         $.jribbble.users('{text:Dribbble Widget Username}').shots({per_page: 36}).then(function(shots) {
@@ -2334,9 +2320,42 @@
         {/block:IfDribbbleWidgetAccessToken}
     </script>
 
-    {block:Twitter}
-        <script src="/tweets.js"></script>    
-    {/block:Twitter}
+    <div class='customize-demo demo-note'>
+        <nav class="cl"><ul><li class="get-started-toggle demo-toggle"><a><b>Get Started</b> <i class="im im-angle-down"></i></a></li></ul></nav>
+        
+        <div class="get-started-overlay demo-overlay">
+            <p><b>Enable mobile theme</b></br> On the Customize screen turn off the Use default mobile theme option under Advanced Options. </br><img src="https://static.tumblr.com/jzzkxgh/o2Yoomruj/default_mobile_theme.png" /></p>
+            
+            <p><b>Add instagram feed</b></br> Enter your username in the "Instagram Username" box. </br><img src="https://static.tumblr.com/jzzkxgh/Uqsqi8zlv/insta-feed.jpg" /></p>
+            
+            <p><b>Display avatar image</b></br> Upload an image to the "Header Avatar" option, square images work best. </br><img src="https://static.tumblr.com/jzzkxgh/Pnhqi7ltv/header-avatar-img.jpg" /></p>
+            
+            <p><b>Remove stash credit</b></br> Remove the stash logo from your website by getting a <a href="https://themes.stashfamily.com/add-ons/full-license" target="_blank">Full License</a>.</p>
+            
+            <p><b>More help & customization</b></br> If you still need more check out our <a href="https://themes.stashfamily.com/help/" target="_blank">help section</a> or the <a href="https://themes.stashfamily.com/docs/ten-toes/" target="_blank">theme docs</a>.</p>
+        </div>
+    </div>
+
+
+    {block:IfInstagramUsername}
+        <script>
+            (function($) {
+                $.instagramFeed({
+                    'username': '{text:Instagram Username}',
+                    'container': "#instagram-feed",
+                    'display_profile': {block:IfInstagramFeedShowAvatar}true{/block:IfInstagramFeedShowAvatar}{block:IfNotInstagramFeedShowAvatar}false{/block:IfNotInstagramFeedShowAvatar},
+                    'display_biography': {block:IfInstagramFeedShowDescription}true{/block:IfInstagramFeedShowDescription}{block:IfNotInstagramFeedShowDescription}false{/block:IfNotInstagramFeedShowDescription},
+                    'display_gallery': true,
+                    'get_raw_json': false,
+                    'callback': null,
+                    'styling': true,
+                    'items': {text:Instagram Feed Photo Count},
+                    'items_per_row': 2,
+                    'margin': 1
+                });
+            })(jQuery); 
+        </script>
+    {/block:IfInstagramUsername}
 
 </body>
 </html>
