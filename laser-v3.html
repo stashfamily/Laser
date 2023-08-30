@@ -2,11 +2,11 @@
 
 <!-- 
 
-    Laser v2 Platinum
+    Laser v3
     by: Stashthemes
     
-    Updates:
-        - Instagram Feed added (Instagram Username method)
+    - TikTok Icon
+    - Phosoet carousel
 
 -->
 
@@ -40,16 +40,12 @@
         <meta name="color:Preloader Text" content="#ffffff">
         <meta name="if:Repeat Background Image" content="0">
         
-        <meta name="text:Instagram Username" content="" />
-        <meta name="text:Instagram Feed Photo Count" content="6" />
-        
         <!-- Header & Links -->
-        <meta name="if:Logo" content="1"/>
         <meta name="if:Header" content="1"/>
         <meta name="if:Navigation" content="1"/>
         
         <!-- Sidebar Main -->
-        <meta name="if:Sidebar" content="0"/>
+        <meta name="if:Sidebar" content="1"/>
         <meta name="if:Sidebar Search" content="0"/>
         <meta name="if:Mobile Hide Sidebar" content="0">
         
@@ -80,6 +76,7 @@
         <!-- Banner -->
         <meta name="image:Banner Background" content=""/>
         <meta name="image:Mobile Banner Background" content=""/>
+        <meta name="text:&#x2584;&#x2580;&#x2584;&#x2580; Banner &#x2580;&#x2584;&#x2580;&#x2584;" content="Enable the banner above first">
         <meta name="text:Banner Youtube Video ID" content=""/>
         <meta name="text:Banner Youtube Playlist ID" content=""/>
         <meta name="text:Banner Vimeo Video ID" content=""/>
@@ -102,6 +99,7 @@
         <meta name="select:Banner Video Autoplay" content="0" Title="Off"/><meta name="select:Banner Video Autoplay" content="1" Title="On"/>
         
         <!-- Posts -->
+        <meta name="if:&#x2584;&#x2580;&#x2584;&#x2580; Posts &#x2580;&#x2584;&#x2580;&#x2584;" content="">
         <meta name="if:Show Photo Overlay" content="1"/>
         <meta name="if:Show Post Tags" content="1"/>
         <meta name="if:Show Post Meta" content="1"/>
@@ -109,14 +107,12 @@
         <meta name="if:Show Post Share" content="1"/>
         <meta name="if:Show Post Like" content="1" />
         <meta name="if:Show Post Reblog" content="1" />
+        <meta name="if:Show Post Reblogs" content="0" />
         <meta name="if:Show Post Note Count" content="1"/>
         <meta name="if:Show Post Notes" content="0"/>
         <meta name="if:Scrollbar" content="1"/>
         <meta name="if:Modal Post" content="1"/>
         <meta name="if:High Quality Images" content="1"/>
-        
-        <meta name="if:Instagram Feed Show Description" content="1" />
-        <meta name="if:Instagram Feed Show Avatar" content="1" />
         
         <meta name="if:Random Link" content="0"/>    
         <meta name="if:Archive Link" content="0"/>   
@@ -127,7 +123,7 @@
         <meta name="text:Random Link Label" content="Random">
         
         <!-- Socials -->
-
+        <meta name="text:&#x2584;&#x2580;&#x2584;&#x2580; Social Media &#x2580;&#x2584;&#x2580;&#x2584;" content="">
         <meta name="text:Email Address" content="">
         <meta name="text:Phone Number" content="">
         <meta name="text:Twitter URL" content="">
@@ -135,6 +131,8 @@
         <meta name="text:Facebook URL" content="">
         <meta name="text:Youtube URL" content="">
         <meta name="text:Snapchat URL" content="">
+        <meta name="text:TikTok URL" content="">
+        <meta name="text:Shop URL" content="">
         <meta name="text:500px URL" content="">  
         <meta name="text:Amazon URL" content="">    
         <meta name="text:Apple URL" content="">        
@@ -158,6 +156,7 @@
         <meta name="text:VK URL" content="">
         <meta name="text:Wordpress URL" content="">
         
+        <meta name="text:&#x2584;&#x2580;&#x2584;&#x2580; Custom Links &#x2580;&#x2584;&#x2580;&#x2584;" content="">
         <meta name="text:Custom Link 1 URL" content=""/>
         <meta name="text:Custom Link 1 Name" content=""/>
         <meta name="text:Custom Link 2 URL" content=""/>
@@ -219,6 +218,7 @@
         <meta name="select:Avatar Style" content="square" Title="Square"/><meta name="select:Avatar Style" content="round" Title="Round"/>
         
         <!-- Translations -->
+        <meta name="text:&#x2584;&#x2580;&#x2584;&#x2580; Translations &#x2580;&#x2584;&#x2580;&#x2584;" content="">
         <meta name="text:Translate Read More Text" content="Read More">
         <meta name="text:Translate Share Text" content="Share">
         <meta name="text:Translate Like Text" content="Like">
@@ -256,7 +256,7 @@
             ;
     </script>
 
-    <link href='https://static.tumblr.com/jzzkxgh/KW9opoygt/font-awesome.css' rel='stylesheet' type='text/css'>
+    <link href="https://static.tumblr.com/jzzkxgh/Ot6rrcrk6/font-awesome.css"  rel="stylesheet" type="text/css">
     <link href="https://static.tumblr.com/jzzkxgh/oSTrli3np/iconmonstr-iconic-font.css" rel="stylesheet" type="text/css">
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={select:Font}:{select:Body Font Weight}, 400,400italic,700,700italic">
@@ -266,7 +266,7 @@
 
     
 
-    <link href="https://static.tumblr.com/jzzkxgh/DyEqitw60/core.css" rel="stylesheet">
+    <link href="https://static.tumblr.com/jzzkxgh/59os074u5/core.css" rel="stylesheet">
     
     <style type="text/css">
         
@@ -463,11 +463,6 @@
                 color:{color:Text};
             }
             
-            {block:ifnotlogo}
-                body.index-page .logo {
-                    display:none !important;
-                }
-            {/block:ifnotlogo}
         }
         
         {block:ifnotnavigation}
@@ -521,15 +516,6 @@
             color:{color:Sidebar Text};
             font-size:{text:Sidebar Title Text Size};
             font-weight:{select:Sidebar Title Font Weight};
-        }
-        
-        .instagram-title {
-            background:{color:Sidebar Text};
-            color:{color:Sidebar Background};
-        }
-        
-        .instagram-title a {
-            color:{color:Sidebar Background};
         }
         
         .sidebar-toggle span:after, .sidebar-toggle span:before {
@@ -793,6 +779,15 @@
                 display:none !important;
             }
         {/block:IfNotShowPostReblog}
+        
+        {block:ifshowpostreblogs}
+            body.index-page article .post-reblog-header {
+                display:block;
+            }
+        {/block:ifshowpostreblogs}
+        {block:ifnotshowpostreblogs}
+            .post-reblog-header, .reblog-user {display:none !important;}
+        {/block:ifnotshowpostreblogs}
 
         {block:IfNotShowPostDate}
             .meta-date, .meta time {
@@ -1170,15 +1165,170 @@
             visibility:visible;
         }
         
-         /** NPF Hotfix **/
+        {block:ifshowphotooverlay}
+            body.index-page #stash-ants article.post-photo p, 
+            body.index-page #stash-ants article.post-photoset p
+            {
+                display:none;
+            }
+            body.index-page #stash-ants article.post-photo .overlay p, 
+            body.index-page #stash-ants article.post-photoset .overlay p
+            {
+                display:block;
+            }
+        {/block:ifshowphotooverlay}            
+
+        /** New **/
+        
+        .audio-caption img {
+            position: absolute;
+            right: 0;
+            top: 0;
+            max-height: 100%;
+            z-index: -3;
+        }
+        
+        .post.fallback .overlay, .post.fallback .overlay-bg, .post-text .overlay, .post-text .overlay-bg, .post-video .overlay, .post-video .overlay-bg {
+            display:none !important;
+        }
+        
+        .post-text .media {
+            display:none;
+        }
+        
+        .overlay h1 {
+            color:{color:Photo Overlay Text};
+            font-size:18px;
+            margin-bottom:10px;
+        }
         
         .post_media_photo_anchor{
             width:100%;
-            transition:0.2s ease;
         }
         
-        .post_media_photo_anchor:hover {
-            opacity:0.8;
+        .post-body .npf_row:last-of-type {
+            margin-bottom:20px;
+        }       
+        
+        .post figure {
+            width:100%;
+            margin: 0 0 20px 0;
+        } 
+        
+        /** New Photoset **/
+        
+        .post-photoset .npf_col.active {
+            opacity: 1;
+            z-index:1;
+            position: relative;
+        }
+        
+        .ps-options .total {
+            display: inline-block;
+        }
+        
+        .post-photoset .npf_col {
+            display: block;
+            width: 100%;
+            margin: 0 0 2px 0;
+            opacity:0;
+            position: absolute;
+            top: 0;
+        }
+        
+        body.stash-photo-overlay .post-photo figure, body.stash-photo-overlay .post-photoset figure {
+            margin:0;
+        }
+        
+        body.permalink-page .post-photoset .npf_col, .stash-overlay .post-photoset .npf_col {
+            position: relative;
+            top: initial;
+            opacity: 1;
+            display:block;
+        }
+        
+        @media (min-width:740px) {
+            body.permalink-page .post-photoset .npf_col, .stash-overlay .post-photoset .npf_col {
+                margin:0 0 var(--spacing) 0;
+            }
+        
+            body.permalink-page .post-photoset .npf_col:last-of-type, .stash-overlay .post-photoset .npf_col:last-of-type {
+                margin:0 0 var(--spacing) 0;
+            }
+        }
+
+        @media (max-width:740px) {
+            body.index-page #stash-ants .photoset-count {
+                top:7.5px;
+                left:15px;
+            }
+            
+            .modal-open .sidebar-toggle {
+                display: none;
+            }
+        }
+        
+        
+        /** New Posts **/
+
+        .hidden {
+            display:none;
+        }
+            
+        article .open-modal.photo-modal {
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            z-index:1;
+            display:none;
+        }
+        
+        body article.post-photo .open-modal.photo-modal, body article.post-photoset .open-modal.photo-modal {
+            display:block;
+        }
+        
+        body.index-page #stash-ants article.post-photo figure, body.index-page #stash-ants article.post-photoset figure {
+            margin:0 !important;
+        }
+        
+        .post-photoset .ps-nav-left, .post-photoset .ps-nav-right {
+            z-index:4;
+        }
+        
+        .stash-photo-post .overlay-bg {
+            pointer-events:none;
+            z-index:0;
+        }
+
+       .stash-overlay .stash-post-meta .caption figure {
+           display:none;
+       }
+        
+        .post-text .photo-modal {
+            display:none;
+        }
+        
+        .stash-overlay.video .stash-caption figure {
+            display:none;
+        }
+
+        .stash-overlay.text .caption {
+            display:none;
+        }
+        
+        @media (min-width: 740px) { 
+            .tumblr_video_container {width:100% !important; height:auto !important;}
+            .tumblr_video_container iframe {
+                width:100% !important;
+                min-height:350px;
+                max-height:50vh !important;
+            }
+
+            .post-page article.post-single .fluid-width-video-wrapper {
+                min-width:720px;
+            }
         }
           
     </style>
@@ -1188,17 +1338,18 @@
 
         <div id="stash-preloader">
             <div id="stash-loader"><div class="loading-icon"></div></div>
-            
-            <div class="preloader-logo {select:Logo Text}">
-                <div class="preloader-logo-inner">
-                    {block:ifnotlogoimage}
-                        <a href="/" title="{lang:Home}">{Title}</a>
-                    {/block:ifnotlogoimage}
-                    {block:iflogoimage}
-                        <a href="/"><img src="{image:Logo}" alt="logo" /></a>
-                    {/block:iflogoimage}
+            {block:ShowTitle}
+                <div class="preloader-logo {select:Logo Text}">
+                    <div class="preloader-logo-inner">
+                        {block:ifnotlogoimage}
+                            <a href="/" title="{lang:Home}">{Title}</a>
+                        {/block:ifnotlogoimage}
+                        {block:iflogoimage}
+                            <a href="/"><img src="{image:Logo}" alt="logo" /></a>
+                        {/block:iflogoimage}
+                    </div>
                 </div>
-            </div>
+            {/block:ShowTitle}
         </div>
 
     {block:IndexPage}
@@ -1368,7 +1519,7 @@
     </div>
 
     <a href="https://themes.stashfamily.com/themes/laser/" class="stash-credit" target="_blank">
-        Theme by</br><svg width="75px" height="10px" viewBox="0 0 75 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><path d="M11.5694444,3.72222222 C12.4675971,3.72222222 13.1203683,3.95833097 13.5277778,4.43055556 C13.9351872,4.90278014 14.1388889,5.51851472 14.1388889,6.27777778 L14.1388889,7.43055556 C14.1388889,7.74537194 14.0879635,8.05555403 13.9861111,8.36111111 C13.8842588,8.66666819 13.7291677,8.9421284 13.5208333,9.1875 C13.312499,9.4328716 13.0486127,9.62962889 12.7291667,9.77777778 C12.4097206,9.92592667 12.0231504,10 11.5694444,10 L0.236111111,10 L0.236111111,7.18055556 L9.75,7.18055556 C10.0185199,7.18055556 10.1898144,7.13194493 10.2638889,7.03472222 C10.3379633,6.93749951 10.375,6.82870431 10.375,6.70833333 C10.375,6.59722167 10.3379633,6.49537083 10.2638889,6.40277778 C10.1898144,6.31018472 10.0185199,6.26388889 9.75,6.26388889 L2.56944444,6.26388889 C2.21759083,6.26388889 1.88426083,6.21064868 1.56944444,6.10416667 C1.25462806,5.99768465 0.981482639,5.84722319 0.75,5.65277778 C0.518517361,5.45833236 0.335648819,5.22685319 0.201388889,4.95833333 C0.0671289583,4.68981347 0,4.38889056 0,4.05555556 L0,2.44444444 C0,2.09259083 0.0671289583,1.76620521 0.201388889,1.46527778 C0.335648819,1.16435035 0.518517361,0.905093681 0.75,0.6875 C0.981482639,0.469906319 1.25462806,0.300926528 1.56944444,0.180555556 C1.88426083,0.0601845833 2.21759083,0 2.56944444,0 L13.6388889,0 L13.6388889,2.81944444 L4.38888889,2.81944444 C4.12036903,2.81944444 3.94907444,2.86342549 3.875,2.95138889 C3.80092556,3.03935229 3.76388889,3.14351792 3.76388889,3.26388889 C3.76388889,3.37500056 3.80092556,3.47916618 3.875,3.57638889 C3.94907444,3.6736116 4.12036903,3.72222222 4.38888889,3.72222222 L11.5694444,3.72222222 Z M29.1805556,0 L29.1805556,3.09722222 L24.1388889,3.09722222 L24.1388889,10 L20.2361111,10 L20.2361111,3.09722222 L15.1111111,3.09722222 L15.1111111,0 L29.1805556,0 Z M33.9722222,5.68055556 L36.0555556,5.68055556 L37.7361111,8.76388889 L32.2638889,8.76388889 L31.5833333,10 L27.4444444,10 L33.1944444,0 L38.0972222,0 L43.8472222,10 L39.7083333,10 L35.6388889,2.66666667 L33.9722222,5.68055556 Z M56.3194444,3.72222222 C57.2175971,3.72222222 57.8703683,3.95833097 58.2777778,4.43055556 C58.6851872,4.90278014 58.8888889,5.51851472 58.8888889,6.27777778 L58.8888889,7.43055556 C58.8888889,7.74537194 58.8379635,8.05555403 58.7361111,8.36111111 C58.6342588,8.66666819 58.4791677,8.9421284 58.2708333,9.1875 C58.062499,9.4328716 57.7986127,9.62962889 57.4791667,9.77777778 C57.1597206,9.92592667 56.7731504,10 56.3194444,10 L44.9861111,10 L44.9861111,7.18055556 L54.5,7.18055556 C54.7685199,7.18055556 54.9398144,7.13194493 55.0138889,7.03472222 C55.0879633,6.93749951 55.125,6.82870431 55.125,6.70833333 C55.125,6.59722167 55.0879633,6.49537083 55.0138889,6.40277778 C54.9398144,6.31018472 54.7685199,6.26388889 54.5,6.26388889 L47.3194444,6.26388889 C46.9675908,6.26388889 46.6342608,6.21064868 46.3194444,6.10416667 C46.0046281,5.99768465 45.7314826,5.84722319 45.5,5.65277778 C45.2685174,5.45833236 45.0856488,5.22685319 44.9513889,4.95833333 C44.817129,4.68981347 44.75,4.38889056 44.75,4.05555556 L44.75,2.44444444 C44.75,2.09259083 44.817129,1.76620521 44.9513889,1.46527778 C45.0856488,1.16435035 45.2685174,0.905093681 45.5,0.6875 C45.7314826,0.469906319 46.0046281,0.300926528 46.3194444,0.180555556 C46.6342608,0.0601845833 46.9675908,0 47.3194444,0 L58.3888889,0 L58.3888889,2.81944444 L49.1388889,2.81944444 C48.870369,2.81944444 48.6990744,2.86342549 48.625,2.95138889 C48.5509256,3.03935229 48.5138889,3.14351792 48.5138889,3.26388889 C48.5138889,3.37500056 48.5509256,3.47916618 48.625,3.57638889 C48.6990744,3.6736116 48.870369,3.72222222 49.1388889,3.72222222 L56.3194444,3.72222222 Z M74.7916667,0 L74.7916667,10 L70.8888889,10 L70.8888889,6.54166667 L66.5694444,6.54166667 L64.875,3.44444444 L70.8888889,3.44444444 L70.8888889,0 L74.7916667,0 Z M64.4583333,0 L64.4583333,10 L60.5555556,10 L60.5555556,0 L64.4583333,0 Z"  fill="#FFFFFF"></path></g></svg>
+        <svg fill="none" viewBox="0 0 322 89"><path fill="#000" d="M0 25h322v64H0z"/><path fill="#fff" d="M48.851 48.998c-.671-2.566-3.524-3.848-8.559-3.848-2.909 0-4.95.25-6.153.724-1.231.502-1.818 1.2-1.818 2.12 0 .78.391 1.366 1.174 1.728.784.39 2.154.642 4.14.753l17.594 1.31c2.769.224 5.174.586 7.188 1.144 2.014.558 3.748 1.31 5.203 2.286 1.454 1.004 2.573 2.259 3.3 3.765.727 1.505 1.091 3.318 1.091 5.41 0 1.728-.224 3.29-.615 4.628-.42 1.338-1.007 2.537-1.79 3.54-.783 1.033-1.846 1.925-3.133 2.65-1.315.753-2.77 1.366-4.364 1.84-1.594.502-3.496.892-5.733 1.171-2.238.28-4.56.502-6.993.614-2.462.111-5.259.167-8.447.167-4.364 0-8.112-.112-11.217-.39-3.104-.28-5.93-.725-8.475-1.394-2.573-.67-4.615-1.562-6.181-2.705-1.567-1.116-2.77-2.566-3.636-4.294-.868-1.729-1.343-3.82-1.427-6.246h21.901c.448 1.784 1.399 3.067 2.881 3.792 1.483.725 3.664 1.087 6.545 1.087 5.734 0 8.615-1.087 8.615-3.262 0-.892-.42-1.533-1.23-1.924-.812-.39-2.182-.67-4.084-.864l-16.783-1.478a46.853 46.853 0 01-5.734-.78 24.362 24.362 0 01-4.643-1.45c-1.454-.614-2.657-1.395-3.58-2.287-.923-.892-1.65-2.036-2.154-3.374-.531-1.338-.783-2.872-.783-4.629 0-2.119.42-3.987 1.259-5.576.839-1.59 2.07-2.9 3.636-3.96 1.566-1.032 3.608-1.868 6.098-2.51 2.46-.64 5.202-1.087 8.223-1.366 2.993-.25 6.49-.39 10.461-.39 3.944 0 7.384.14 10.35.39 2.964.28 5.677.725 8.167 1.367 2.461.641 4.503 1.477 6.07 2.537 1.566 1.06 2.824 2.398 3.72 4.015.894 1.617 1.37 3.514 1.482 5.689H48.85zM129.491 36.617v14.11h-19.272v26.656H91.423V50.726H72.15V36.617h57.34zM169.657 77.383l-2.434-4.74h-21.957l-2.405 4.74h-20.586l21.957-40.766h24.138l21.817 40.766h-20.53zM156.455 50.81h-.448a503.06 503.06 0 01-5.37 11.153h11.188l-5.37-11.153zM226.969 48.998c-.671-2.566-3.524-3.848-8.559-3.848-2.909 0-4.951.25-6.154.724-1.23.502-1.818 1.2-1.818 2.12 0 .78.392 1.366 1.175 1.728.783.39 2.154.642 4.14.753l17.593 1.31c2.769.224 5.175.586 7.189 1.144 2.014.558 3.748 1.31 5.202 2.286 1.455 1.004 2.574 2.259 3.301 3.765.727 1.505 1.091 3.318 1.091 5.41 0 1.728-.224 3.29-.616 4.628-.419 1.338-1.007 2.537-1.79 3.54-.783 1.033-1.846 1.925-3.132 2.65-1.315.753-2.77 1.366-4.364 1.84-1.594.502-3.496.892-5.734 1.171a89.377 89.377 0 01-6.993.614c-2.461.111-5.258.167-8.447.167-4.363 0-8.111-.112-11.216-.39-3.105-.28-5.93-.725-8.475-1.394-2.573-.67-4.615-1.562-6.182-2.705-1.566-1.116-2.769-2.566-3.636-4.294-.867-1.729-1.342-3.82-1.426-6.246h21.901c.447 1.784 1.398 3.067 2.881 3.792 1.482.725 3.664 1.087 6.545 1.087 5.734 0 8.615-1.087 8.615-3.262 0-.892-.42-1.533-1.231-1.924-.811-.39-2.182-.67-4.084-.864l-16.782-1.478a46.837 46.837 0 01-5.734-.78 24.355 24.355 0 01-4.643-1.45c-1.455-.614-2.657-1.395-3.58-2.287-.923-.892-1.651-2.036-2.154-3.374-.532-1.338-.783-2.872-.783-4.629 0-2.119.419-3.987 1.258-5.576.839-1.59 2.07-2.9 3.637-3.96 1.566-1.032 3.608-1.868 6.097-2.51 2.462-.64 5.203-1.087 8.224-1.366 2.992-.25 6.489-.39 10.461-.39 3.943 0 7.384.14 10.349.39 2.965.28 5.678.725 8.167 1.367 2.462.641 4.503 1.477 6.07 2.537 1.566 1.06 2.825 2.398 3.72 4.015.895 1.617 1.371 3.514 1.482 5.689h-21.565zM293.204 36.617H312v40.766h-18.796V63.05h-21.426v14.332H253.01V36.617h18.768v13.886h21.426V36.617z"/><path fill="#FE0" d="M222 0h100v25H222z"/><path fill="#000" d="M232.482 19V7.948h-4.122V6.13h10.368v1.818h-4.104V19h-2.142zm7.708-12.87h2.142v5.328h6.084V6.13h2.142V19h-2.142v-5.706h-6.084V19h-2.142V6.13zm14.71 5.31h6.282v1.836H254.9v3.906h7.344V19h-9.486V6.13h9.306v1.818H254.9v3.492zm9.091 7.56V6.13h2.772l3.6 9.9h.036l3.582-9.9h2.772V19h-2.088V9.244h-.036L271.227 19h-1.71l-3.402-9.756h-.036V19h-2.088zm17.101-7.56h6.282v1.836h-6.282v3.906h7.344V19h-9.486V6.13h9.306v1.818h-7.164v3.492zm22.22-2.07c0 1.584-.936 2.322-1.998 2.682v.036c1.35.234 2.502 1.224 2.502 3.15 0 2.484-1.71 3.762-4.374 3.762h-5.832V6.13h5.526c2.646 0 4.176 1.17 4.176 3.24zm-7.56 2.088h3.312c1.53 0 2.106-.612 2.106-1.746s-.702-1.764-1.98-1.764h-3.438v3.51zm0 1.602v4.122h3.528c1.836 0 2.394-.864 2.394-2.07 0-1.314-.81-2.052-2.16-2.052h-3.762zm8.645-6.93h2.286l3.33 5.976h.036l3.348-5.976h2.286l-4.572 7.758V19h-2.142v-5.112l-4.572-7.758z"/></svg>
     </a>
     
     
@@ -1470,33 +1621,35 @@
                 
                 <nav class="sidebar-social widget cl">
                     <ul class="social-links-icons social-links">
-                        {block:ifTwitterURL}<li><a target="_blank" href="{text:Twitter URL}"><i class="fa fa-twitter"></i></a></li>{/block:ifTwitterURL}
-                        {block:ifInstagramURL}<li><a target="_blank" href="{text:Instagram URL}"><i class="fa fa-instagram"></i></a></li>{block:ifInstagramURL}
-                        {block:ifFacebookURL}<li><a target="_blank" href="{text:Facebook URL}"><i class="fa fa-facebook"></i></a></li>{/block:ifFacebookURL} 
-                        {block:ifYoutubeURL}<li><a target="_blank" href="{text:Youtube URL}"><i class="fa fa-youtube"></i></a></li>{/block:ifYoutubeURL}  
-                        {block:ifSnapchatURL}<li><a target="_blank" href="{text:Snapchat URL}"><i class="fa fa-snapchat-ghost"></i></a></li>{/block:ifSnapchatURL}
-                        {block:if500pxURL}<li><a target="_blank" href="{text:500px URL}"><i class="fa fa-500px"></i></a></li>{/block:if500pxURL} 
-                        {block:ifAmazonURL}<li><a target="_blank" href="{text:Amazon URL}"><i class="fa fa-amazon"></i></a></li>{/block:ifAmazonURL} 
-                        {block:ifAppleURL}<li><a target="_blank" href="{text:Apple URL}"><i class="fa fa-apple"></i></a></li>{/block:ifAppleURL} 
-                        {block:ifBandcampURL}<li><a target="_blank" href="{text:Bandcamp URL}"><i class="fa fa-bandcamp"></i></a></li>{/block:ifBandcampURL} 
-                        {block:ifBehanceURL}<li><a target="_blank" href="{text:Behance URL}"><i class="fa fa-behance"></i></a></li>{/block:ifBehanceURL}  
-                        {block:ifDribbbleURL}<li><a target="_blank" href="{text:Dribbble URL}"><i class="fa fa-dribbble"></i></a></li>{/block:ifDribbbleURL}  
-                        {block:ifEtsyURL}<li><a target="_blank" href="{text:Etsy URL}"><i class="fa fa-etsy"></i></a></li>{/block:ifEtsyURL}  
-                        {block:ifFlickrURL}<li><a target="_blank" href="{text:Flickr URL}"><i class="fa fa-flickr"></i></a></li>{/block:ifFlickrURL}   
-                        {block:ifGithubURL}<li><a target="_blank" href="{text:Github URL}"><i class="fa fa-github"></i></a></li>{/block:ifGithubURL}   
-                        {block:ifGooglePlusURL}<li><a target="_blank" href="{text:GooglePlus URL}"><i class="fa fa-google-plus"></i></a></li>{/block:ifGooglePlusURL}
-                        {block:ifLinkedinURL}<li><a target="_blank" href="{text:Linkedin URL}"><i class="fa fa-linkedin"></i></a></li>{/block:ifLinkedinURL}
-                        {block:ifPayPalURL}<li><a target="_blank" href="{text:PayPal URL}"><i class="fa fa-paypal"></i></a></li>{/block:ifPayPalURL}
-                        {block:ifPinterestURL}<li><a target="_blank" href="{text:Pinterest URL}"><i class="fa fa-pinterest"></i></a></li>{/block:ifPinterestURL}   
-                        {block:ifPodcastURL}<li><a target="_blank" href="{text:Podcast URL}"><i class="fa fa-podcast"></i></a></li>{/block:ifPodcastURL}   
-                        {block:ifMixcloudURL}<li><a target="_blank" href="{text:Mixcloud URL}"><i class="fa fa-mixcloud"></i></a></li>{/block:ifMixcloudURL} 
-                        {block:ifSoundcloudURL}<li><a target="_blank" href="{text:Soundcloud URL}"><i class="fa fa-soundcloud"></i></a></li>{/block:ifSoundcloudURL}
-                        {block:ifSkypeURL}<li><a target="_blank" href="{text:Skype URL}"><i class="fa fa-skype"></i></a></li>{/block:ifSkypeURL}   
-                        {block:ifSpotifyURL}<li><a target="_blank" href="{text:Spotify URL}"><i class="fa fa-spotify"></i></a></li>{/block:ifSpotifyURL}   
-                        {block:ifTwitchURL}<li><a target="_blank" href="{text:Twitch URL}"><i class="fa fa-twitch"></i></a></li>{/block:ifTwitchURL} 
-                        {block:ifVimeoURL}<li><a target="_blank" href="{text:Vimeo URL}"><i class="fa fa-vimeo"></i></a></li>{/block:ifVimeoURL} 
-                        {block:ifVKURL}<li><a target="_blank" href="{text:VK URL}"><i class="fa fa-vk"></i></a></li>{/block:ifVKURL}   
-                        {block:ifWordpressURL}<li><a target="_blank" href="{text:Wordpress URL}"><i class="fa fa-wordpress"></i></a></li>{/block:ifWordpressURL}
+                        {block:ifTwitterURL}<li><a target="_blank" href="{text:Twitter URL}"><i class="fa-brands fa-twitter"></i></a></li>{/block:ifTwitterURL}
+                        {block:ifInstagramURL}<li><a target="_blank" href="{text:Instagram URL}"><i class="fa-brands fa-instagram"></i></a></li>{block:ifInstagramURL}
+                        {block:ifFacebookURL}<li><a target="_blank" href="{text:Facebook URL}"><i class="fa-brands fa-facebook"></i></a></li>{/block:ifFacebookURL} 
+                        {block:ifYoutubeURL}<li><a target="_blank" href="{text:Youtube URL}"><i class="fa-brands fa-youtube"></i></a></li>{/block:ifYoutubeURL}  
+                        {block:ifSnapchatURL}<li><a target="_blank" href="{text:Snapchat URL}"><i class="fa-brands fa-snapchat-ghost"></i></a></li>{/block:ifSnapchatURL}
+                        {block:ifTikTokURL}<li><a target="_blank" href="{text:TikTok URL}"><i class="fa-brands fa-tiktok"></i></a></li>{/block:ifTikTokURL} 
+                        {block:ifShopURL}<li><a target="_blank" href="{text:Shop URL}"><i class="fa fa-store"></i></a></li>{/block:ifShopURL}
+                        {block:if500pxURL}<li><a target="_blank" href="{text:500px URL}"><i class="fa-brands fa-500px"></i></a></li>{/block:if500pxURL} 
+                        {block:ifAmazonURL}<li><a target="_blank" href="{text:Amazon URL}"><i class="fa-brands fa-amazon"></i></a></li>{/block:ifAmazonURL} 
+                        {block:ifAppleURL}<li><a target="_blank" href="{text:Apple URL}"><i class="fa-brands fa-apple"></i></a></li>{/block:ifAppleURL} 
+                        {block:ifBandcampURL}<li><a target="_blank" href="{text:Bandcamp URL}"><i class="fa-brands fa-bandcamp"></i></a></li>{/block:ifBandcampURL} 
+                        {block:ifBehanceURL}<li><a target="_blank" href="{text:Behance URL}"><i class="fa-brands fa-behance"></i></a></li>{/block:ifBehanceURL}  
+                        {block:ifDribbbleURL}<li><a target="_blank" href="{text:Dribbble URL}"><i class="fa-brands fa-dribbble"></i></a></li>{/block:ifDribbbleURL}  
+                        {block:ifEtsyURL}<li><a target="_blank" href="{text:Etsy URL}"><i class="fa-brands fa-etsy"></i></a></li>{/block:ifEtsyURL}  
+                        {block:ifFlickrURL}<li><a target="_blank" href="{text:Flickr URL}"><i class="fa-brands fa-flickr"></i></a></li>{/block:ifFlickrURL}   
+                        {block:ifGithubURL}<li><a target="_blank" href="{text:Github URL}"><i class="fa-brands fa-github"></i></a></li>{/block:ifGithubURL}   
+                        {block:ifGooglePlusURL}<li><a target="_blank" href="{text:GooglePlus URL}"><i class="fa-brands fa-google-plus"></i></a></li>{/block:ifGooglePlusURL}
+                        {block:ifLinkedinURL}<li><a target="_blank" href="{text:Linkedin URL}"><i class="fa-brands fa-linkedin"></i></a></li>{/block:ifLinkedinURL}
+                        {block:ifPayPalURL}<li><a target="_blank" href="{text:PayPal URL}"><i class="fa-brands fa-paypal"></i></a></li>{/block:ifPayPalURL}
+                        {block:ifPinterestURL}<li><a target="_blank" href="{text:Pinterest URL}"><i class="fa-brands fa-pinterest"></i></a></li>{/block:ifPinterestURL}   
+                        {block:ifPodcastURL}<li><a target="_blank" href="{text:Podcast URL}"><i class="fa-brands fa-podcast"></i></a></li>{/block:ifPodcastURL}   
+                        {block:ifMixcloudURL}<li><a target="_blank" href="{text:Mixcloud URL}"><i class="fa-brands fa-mixcloud"></i></a></li>{/block:ifMixcloudURL} 
+                        {block:ifSoundcloudURL}<li><a target="_blank" href="{text:Soundcloud URL}"><i class="fa-brands fa-soundcloud"></i></a></li>{/block:ifSoundcloudURL}
+                        {block:ifSkypeURL}<li><a target="_blank" href="{text:Skype URL}"><i class="fa-brands fa-skype"></i></a></li>{/block:ifSkypeURL}   
+                        {block:ifSpotifyURL}<li><a target="_blank" href="{text:Spotify URL}"><i class="fa-brands fa-spotify"></i></a></li>{/block:ifSpotifyURL}   
+                        {block:ifTwitchURL}<li><a target="_blank" href="{text:Twitch URL}"><i class="fa-brands fa-twitch"></i></a></li>{/block:ifTwitchURL} 
+                        {block:ifVimeoURL}<li><a target="_blank" href="{text:Vimeo URL}"><i class="fa-brands fa-vimeo"></i></a></li>{/block:ifVimeoURL} 
+                        {block:ifVKURL}<li><a target="_blank" href="{text:VK URL}"><i class="fa-brands fa-vk"></i></a></li>{/block:ifVKURL}   
+                        {block:ifWordpressURL}<li><a target="_blank" href="{text:Wordpress URL}"><i class="fa-brands fa-wordpress"></i></a></li>{/block:ifWordpressURL}
                     </ul>
                 </nav>
             
@@ -1564,12 +1717,6 @@
                     </div>
                 {/block:ifsidebarimagead4image}
                 
-                {block:IfInstagramUsername}
-                    <div id="instagram-feed" class="widget">
-                        
-                    </div>
-                {/block:IfInstagramUsername}
-                
                 {block:IfFlickrUserID}
                     <div class="flickr widget cl"> <h3>{text:Flickr Widget Title}</h3> <ul class="flickr-feed social-widget"></ul> </div>
                 {/block:IfFlickrUserID}
@@ -1587,14 +1734,16 @@
     </div>
     </div>
 
-    <div class="logo logo-main {select:Logo Text}">
-        {block:ifnotlogoimage}
-            <a href="/" title="{lang:Home}">{Title}</a>
-        {/block:ifnotlogoimage}
-        {block:iflogoimage}
-            <a href="/"><img src="{image:Logo}" alt="logo" /></a>
-        {/block:iflogoimage}
-    </div>
+    {block:ShowTitle}
+        <div class="logo logo-main {select:Logo Text}">
+            {block:ifnotlogoimage}
+                <a href="/" title="{lang:Home}">{Title}</a>
+            {/block:ifnotlogoimage}
+            {block:iflogoimage}
+                <a href="/"><img src="{image:Logo}" alt="logo" /></a>
+            {/block:iflogoimage}
+        </div>
+    {/block:ShowTitle}
     
     <div id="header">
     
@@ -1607,14 +1756,16 @@
     <div class="inner">
         <div class="wrap">
         
-            <div class="logo {select:Logo Text}">
-                {block:ifnotlogoimage}
-                    <a href="/" title="{lang:Home}">{Title}</a>
-                {/block:ifnotlogoimage}
-                {block:iflogoimage}
-                    <a href="/"><img src="{image:Logo}" alt="logo" /></a>
-                {/block:iflogoimage}
-            </div>
+            {block:ShowTitle}
+                <div class="logo {select:Logo Text}">
+                    {block:ifnotlogoimage}
+                        <a href="/" title="{lang:Home}">{Title}</a>
+                    {/block:ifnotlogoimage}
+                    {block:iflogoimage}
+                        <a href="/"><img src="{image:Logo}" alt="logo" /></a>
+                    {/block:iflogoimage}
+                </div>
+            {/block:ShowTitle}
             
             <nav class="navigation cl {select:Navigation Text}">
                 <ul>
@@ -1660,33 +1811,35 @@
             
             <nav class="header-social cl">
                 <ul class="social-links-icons social-links">
-                    {block:ifTwitterURL}<li><a target="_blank" href="{text:Twitter URL}"><i class="fa fa-twitter"></i></a></li>{/block:ifTwitterURL}
-                    {block:ifInstagramURL}<li><a target="_blank" href="{text:Instagram URL}"><i class="fa fa-instagram"></i></a></li>{block:ifInstagramURL}
-                    {block:ifFacebookURL}<li><a target="_blank" href="{text:Facebook URL}"><i class="fa fa-facebook"></i></a></li>{/block:ifFacebookURL} 
-                    {block:ifYoutubeURL}<li><a target="_blank" href="{text:Youtube URL}"><i class="fa fa-youtube"></i></a></li>{/block:ifYoutubeURL}  
-                    {block:ifSnapchatURL}<li><a target="_blank" href="{text:Snapchat URL}"><i class="fa fa-snapchat-ghost"></i></a></li>{/block:ifSnapchatURL}
-                    {block:if500pxURL}<li><a target="_blank" href="{text:500px URL}"><i class="fa fa-500px"></i></a></li>{/block:if500pxURL} 
-                    {block:ifAmazonURL}<li><a target="_blank" href="{text:Amazon URL}"><i class="fa fa-amazon"></i></a></li>{/block:ifAmazonURL} 
-                    {block:ifAppleURL}<li><a target="_blank" href="{text:Apple URL}"><i class="fa fa-apple"></i></a></li>{/block:ifAppleURL} 
-                    {block:ifBandcampURL}<li><a target="_blank" href="{text:Bandcamp URL}"><i class="fa fa-bandcamp"></i></a></li>{/block:ifBandcampURL} 
-                    {block:ifBehanceURL}<li><a target="_blank" href="{text:Behance URL}"><i class="fa fa-behance"></i></a></li>{/block:ifBehanceURL}  
-                    {block:ifDribbbleURL}<li><a target="_blank" href="{text:Dribbble URL}"><i class="fa fa-dribbble"></i></a></li>{/block:ifDribbbleURL}  
-                    {block:ifEtsyURL}<li><a target="_blank" href="{text:Etsy URL}"><i class="fa fa-etsy"></i></a></li>{/block:ifEtsyURL}  
-                    {block:ifFlickrURL}<li><a target="_blank" href="{text:Flickr URL}"><i class="fa fa-flickr"></i></a></li>{/block:ifFlickrURL}   
-                    {block:ifGithubURL}<li><a target="_blank" href="{text:Github URL}"><i class="fa fa-github"></i></a></li>{/block:ifGithubURL}   
-                    {block:ifGooglePlusURL}<li><a target="_blank" href="{text:GooglePlus URL}"><i class="fa fa-google-plus"></i></a></li>{/block:ifGooglePlusURL}
-                    {block:ifLinkedinURL}<li><a target="_blank" href="{text:Linkedin URL}"><i class="fa fa-linkedin"></i></a></li>{/block:ifLinkedinURL}
-                    {block:ifPayPalURL}<li><a target="_blank" href="{text:PayPal URL}"><i class="fa fa-paypal"></i></a></li>{/block:ifPayPalURL}
-                    {block:ifPinterestURL}<li><a target="_blank" href="{text:Pinterest URL}"><i class="fa fa-pinterest"></i></a></li>{/block:ifPinterestURL}   
-                    {block:ifPodcastURL}<li><a target="_blank" href="{text:Podcast URL}"><i class="fa fa-podcast"></i></a></li>{/block:ifPodcastURL}   
-                    {block:ifMixcloudURL}<li><a target="_blank" href="{text:Mixcloud URL}"><i class="fa fa-mixcloud"></i></a></li>{/block:ifMixcloudURL} 
-                    {block:ifSoundcloudURL}<li><a target="_blank" href="{text:Soundcloud URL}"><i class="fa fa-soundcloud"></i></a></li>{/block:ifSoundcloudURL}
-                    {block:ifSkypeURL}<li><a target="_blank" href="{text:Skype URL}"><i class="fa fa-skype"></i></a></li>{/block:ifSkypeURL}   
-                    {block:ifSpotifyURL}<li><a target="_blank" href="{text:Spotify URL}"><i class="fa fa-spotify"></i></a></li>{/block:ifSpotifyURL}   
-                    {block:ifTwitchURL}<li><a target="_blank" href="{text:Twitch URL}"><i class="fa fa-twitch"></i></a></li>{/block:ifTwitchURL} 
-                    {block:ifVimeoURL}<li><a target="_blank" href="{text:Vimeo URL}"><i class="fa fa-vimeo"></i></a></li>{/block:ifVimeoURL} 
-                    {block:ifVKURL}<li><a target="_blank" href="{text:VK URL}"><i class="fa fa-vk"></i></a></li>{/block:ifVKURL}   
-                    {block:ifWordpressURL}<li><a target="_blank" href="{text:Wordpress URL}"><i class="fa fa-wordpress"></i></a></li>{/block:ifWordpressURL}
+                        {block:ifTwitterURL}<li><a target="_blank" href="{text:Twitter URL}"><i class="fa-brands fa-twitter"></i></a></li>{/block:ifTwitterURL}
+                        {block:ifInstagramURL}<li><a target="_blank" href="{text:Instagram URL}"><i class="fa-brands fa-instagram"></i></a></li>{block:ifInstagramURL}
+                        {block:ifFacebookURL}<li><a target="_blank" href="{text:Facebook URL}"><i class="fa-brands fa-facebook"></i></a></li>{/block:ifFacebookURL} 
+                        {block:ifYoutubeURL}<li><a target="_blank" href="{text:Youtube URL}"><i class="fa-brands fa-youtube"></i></a></li>{/block:ifYoutubeURL}  
+                        {block:ifSnapchatURL}<li><a target="_blank" href="{text:Snapchat URL}"><i class="fa-brands fa-snapchat-ghost"></i></a></li>{/block:ifSnapchatURL}
+                        {block:ifTikTokURL}<li><a target="_blank" href="{text:TikTok URL}"><i class="fa-brands fa-tiktok"></i></a></li>{/block:ifTikTokURL} 
+                        {block:ifShopURL}<li><a target="_blank" href="{text:Shop URL}"><i class="fa fa-store"></i></a></li>{/block:ifShopURL}
+                        {block:if500pxURL}<li><a target="_blank" href="{text:500px URL}"><i class="fa-brands fa-500px"></i></a></li>{/block:if500pxURL} 
+                        {block:ifAmazonURL}<li><a target="_blank" href="{text:Amazon URL}"><i class="fa-brands fa-amazon"></i></a></li>{/block:ifAmazonURL} 
+                        {block:ifAppleURL}<li><a target="_blank" href="{text:Apple URL}"><i class="fa-brands fa-apple"></i></a></li>{/block:ifAppleURL} 
+                        {block:ifBandcampURL}<li><a target="_blank" href="{text:Bandcamp URL}"><i class="fa-brands fa-bandcamp"></i></a></li>{/block:ifBandcampURL} 
+                        {block:ifBehanceURL}<li><a target="_blank" href="{text:Behance URL}"><i class="fa-brands fa-behance"></i></a></li>{/block:ifBehanceURL}  
+                        {block:ifDribbbleURL}<li><a target="_blank" href="{text:Dribbble URL}"><i class="fa-brands fa-dribbble"></i></a></li>{/block:ifDribbbleURL}  
+                        {block:ifEtsyURL}<li><a target="_blank" href="{text:Etsy URL}"><i class="fa-brands fa-etsy"></i></a></li>{/block:ifEtsyURL}  
+                        {block:ifFlickrURL}<li><a target="_blank" href="{text:Flickr URL}"><i class="fa-brands fa-flickr"></i></a></li>{/block:ifFlickrURL}   
+                        {block:ifGithubURL}<li><a target="_blank" href="{text:Github URL}"><i class="fa-brands fa-github"></i></a></li>{/block:ifGithubURL}   
+                        {block:ifGooglePlusURL}<li><a target="_blank" href="{text:GooglePlus URL}"><i class="fa-brands fa-google-plus"></i></a></li>{/block:ifGooglePlusURL}
+                        {block:ifLinkedinURL}<li><a target="_blank" href="{text:Linkedin URL}"><i class="fa-brands fa-linkedin"></i></a></li>{/block:ifLinkedinURL}
+                        {block:ifPayPalURL}<li><a target="_blank" href="{text:PayPal URL}"><i class="fa-brands fa-paypal"></i></a></li>{/block:ifPayPalURL}
+                        {block:ifPinterestURL}<li><a target="_blank" href="{text:Pinterest URL}"><i class="fa-brands fa-pinterest"></i></a></li>{/block:ifPinterestURL}   
+                        {block:ifPodcastURL}<li><a target="_blank" href="{text:Podcast URL}"><i class="fa-brands fa-podcast"></i></a></li>{/block:ifPodcastURL}   
+                        {block:ifMixcloudURL}<li><a target="_blank" href="{text:Mixcloud URL}"><i class="fa-brands fa-mixcloud"></i></a></li>{/block:ifMixcloudURL} 
+                        {block:ifSoundcloudURL}<li><a target="_blank" href="{text:Soundcloud URL}"><i class="fa-brands fa-soundcloud"></i></a></li>{/block:ifSoundcloudURL}
+                        {block:ifSkypeURL}<li><a target="_blank" href="{text:Skype URL}"><i class="fa-brands fa-skype"></i></a></li>{/block:ifSkypeURL}   
+                        {block:ifSpotifyURL}<li><a target="_blank" href="{text:Spotify URL}"><i class="fa-brands fa-spotify"></i></a></li>{/block:ifSpotifyURL}   
+                        {block:ifTwitchURL}<li><a target="_blank" href="{text:Twitch URL}"><i class="fa-brands fa-twitch"></i></a></li>{/block:ifTwitchURL} 
+                        {block:ifVimeoURL}<li><a target="_blank" href="{text:Vimeo URL}"><i class="fa-brands fa-vimeo"></i></a></li>{/block:ifVimeoURL} 
+                        {block:ifVKURL}<li><a target="_blank" href="{text:VK URL}"><i class="fa-brands fa-vk"></i></a></li>{/block:ifVKURL}   
+                        {block:ifWordpressURL}<li><a target="_blank" href="{text:Wordpress URL}"><i class="fa-brands fa-wordpress"></i></a></li>{/block:ifWordpressURL}
                 </ul>
             </nav>
             
@@ -1721,7 +1874,7 @@
                     {block:Posts inlineMediaWidth="1280"}
                         
                         {block:Photo}
-                        <article id="{PostID}" class="cl {block:IndexPage} ants-item-two post modal post-photo pp {block:Tags}{Tag} {/block:Tags}{/block:IndexPage}{block:PermalinkPage}{block:Date} post-single single-photo{/block:Date}{/block:PermalinkPage}" data-id="{PostID}" data-notes="{PostNotesURL}" data-pt="photo">
+                        <article id="{PostID}" class="cl {block:IndexPage} parsed ants-item-two post modal post-photo pp {block:Tags}{Tag} {/block:Tags}{/block:IndexPage}{block:PermalinkPage}{block:Date} post-single single-photo{/block:Date}{/block:PermalinkPage}" data-id="{PostID}" data-notes="{PostNotesURL}" data-pt="photo">
                         <input id="post-notes-url" type="hidden" value="{PostNotesURL}">
                             <div class="inner">
                             
@@ -1774,7 +1927,7 @@
                         {/block:Photo}
             
                         {block:Photoset}
-                            <article id="{PostID}" class="{block:IndexPage} ants-item-two post modal post-photoset pp {block:Tags}{Tag} {/block:Tags}{/block:IndexPage} {block:PermalinkPage}{block:Date} post-single single-photoset-page{/block:Date}{/block:PermalinkPage}" data-id="{PostID}"  data-notes="{PostNotesURL}" data-pt="photoset">
+                            <article id="{PostID}" class="{block:IndexPage} ants-item-two parsed post modal post-photoset pp {block:Tags}{Tag} {/block:Tags}{/block:IndexPage} {block:PermalinkPage}{block:Date} post-single single-photoset-page{/block:Date}{/block:PermalinkPage}" data-id="{PostID}"  data-notes="{PostNotesURL}" data-pt="photoset">
                             <input id="post-notes-url" type="hidden" value="{PostNotesURL}">
                             
                                     {block:PermalinkPage}<div class="post-right">{/block:PermalinkPage}
@@ -1811,6 +1964,16 @@
                         {block:Text}
                         <article id="{PostID}" class="{block:IndexPage} ants-item-two post modal post-text {block:Tags}{Tag} {/block:Tags}{/block:IndexPage} {block:PermalinkPage}{block:Date} post-single single-text{/block:Date}{/block:PermalinkPage}" data-id="{PostID}" data-notes="{PostNotesURL}" data-pt="text">
                         <input id="post-notes-url" type="hidden" value="{PostNotesURL}">
+                        
+                        	<div class="hidden">
+                        		<script type="text/json">
+                        			{NPF}
+                        		</script>
+                        	</div>
+                            {block:IndexPage}
+                                <a class="open-modal photo-modal" href="{Permalink}" data-id="{PostID}"></a>
+                            {/block:IndexPage}
+                            
                             {block:PermalinkPage}<div class="post-left">{/block:PermalinkPage}
                             <div class="inside">
                             
@@ -1862,10 +2025,38 @@
                                     </div>
                                 {/block:RebloggedFrom}
                             </div>
+                            
+                            {block:IndexPage}
+                                <div class="overlay-bg"></div>                               
+                                <div class="overlay">
+
+                                    <div class="post-share">
+                                        <div class="close-post-share">
+                                            <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">\<path d="M18,15.141 L11.76375,8.98425 L17.91375,2.77275 L15.141,0 L8.982,6.2385 L2.7495,0.08625 L-1.77635684e-15,2.83575 L6.24075,9.01575 L0.08625,15.2505 L2.83575,18 L9.0135,11.7615 L15.22725,17.91375 L18,15.141 Z" fill="#FFFFFF"></path></g></svg>
+                                        </div>
+
+                                        <div class="social-media">
+                                            <span class="share-facebook" title="Share on Facebook"><a class="fa fa-facebook" href="https://www.facebook.com/sharer.php?u={Permalink}{block:Title}&t={Title}{/block:Title}" target="_new"></a></span><span class="share-twitter" title="Share on Twitter"><a class="fa fa-twitter" href="https://twitter.com/intent/tweet?url={ShortURL}" target="_new"></a></span><span class="share-pinterest"><a class="fa fa-pinterest" target="_new" href="https://pinterest.com/pin/create/button/?url={Permalink}&media={PhotoURL-500}"></a></span></div>
+                                        </div>
+
+                                        <ul class="post-footer">
+                                            <li class="share-toggle" data-post-id="{PostID}" title="Share this post">{text:Translate Share Text}</li>
+                                            <li class="post-like" title="Like this post">
+                                                {LikeButton color="grey" size="15"}
+                                                <span class="like-text">{text:Translate Like Text}</span>
+                                                <span class="like-text like-text-liked">{text:Translate Liked Text}</span>
+                                            </li>
+                                            <li class="post-reblog" title="Reblog this post"><a href="{ReblogURL}">{text:Translate Reblog Text}</a></li>
+                                            <li class="post-note-count"><span><a class="open-modal" data-id="{PostID}">
+                                            {NoteCount} {text:Translate Notes Text}</a></span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            {/block:IndexPage}
                         {/block:Text}         
             
                         {block:Audio}      
-                        <article id="{PostID}" class="{block:IndexPage} ants-item-two post modal post-audio {block:Tags}{Tag} {/block:Tags}{/block:IndexPage} {block:PermalinkPage}{block:Date} post-single single-audio{/block:Date}{/block:PermalinkPage}" data-id="{PostID}" data-notes="{PostNotesURL}" data-pt="audio">
+                        <article id="{PostID}" class="{block:IndexPage} ants-item-two parsed post modal post-audio {block:Tags}{Tag} {/block:Tags}{/block:IndexPage} {block:PermalinkPage}{block:Date} post-single single-audio{/block:Date}{/block:PermalinkPage}" data-id="{PostID}" data-notes="{PostNotesURL}" data-pt="audio">
                         <input id="post-notes-url" type="hidden" value="{PostNotesURL}">
                         
                             <div class="inside">
@@ -1886,7 +2077,7 @@
             
         
                         {block:Video}
-                        <article id="{PostID}" class="{block:IndexPage} ants-item-two post modal post-video {block:Tags}{Tag} {/block:Tags}{/block:IndexPage} {block:PermalinkPage}{block:Date} post-single single-video{/block:Date}{/block:PermalinkPage}" data-id="{PostID}" data-notes="{PostNotesURL}" data-pt="video">
+                        <article id="{PostID}" class="{block:IndexPage} ants-item-two parsed post modal post-video {block:Tags}{Tag} {/block:Tags}{/block:IndexPage} {block:PermalinkPage}{block:Date} post-single single-video{/block:Date}{/block:PermalinkPage}" data-id="{PostID}" data-notes="{PostNotesURL}" data-pt="video">
                         <input id="post-notes-url" type="hidden" value="{PostNotesURL}">
                         
                             <div class="inside">
@@ -1902,7 +2093,7 @@
                 
             
                         {block:Quote}
-                            <article id="{PostID}" class="{block:IndexPage} ants-item-two post modal post-quote {block:Tags}{Tag} {/block:Tags}{/block:IndexPage} {block:PermalinkPage}{block:Date} post-single single-quote{/block:Date}{/block:PermalinkPage}" data-id="{PostID}" data-notes="{PostNotesURL}" data-pt="quote">
+                            <article id="{PostID}" class="{block:IndexPage} ants-item-two parsed post modal post-quote {block:Tags}{Tag} {/block:Tags}{/block:IndexPage} {block:PermalinkPage}{block:Date} post-single single-quote{/block:Date}{/block:PermalinkPage}" data-id="{PostID}" data-notes="{PostNotesURL}" data-pt="quote">
                             <input id="post-notes-url" type="hidden" value="{PostNotesURL}">
                             
                                 {block:PermalinkPage}<div class="post-left">{/block:PermalinkPage}
@@ -1915,7 +2106,7 @@
                     
                 
                          {block:Link}
-                            <article id="{PostID}" class="{block:IndexPage} ants-item-two post modal post-link {block:Tags}{Tag} {/block:Tags}{/block:IndexPage}" data-id="{PostID}" data-notes="{PostNotesURL} {block:PermalinkPage}{block:Date} post-single single-link{/block:Date}{/block:PermalinkPage}" data-pt="link">
+                            <article id="{PostID}" class="{block:IndexPage} ants-item-two parsed post modal post-link {block:Tags}{Tag} {/block:Tags}{/block:IndexPage}" data-id="{PostID}" data-notes="{PostNotesURL} {block:PermalinkPage}{block:Date} post-single single-link{/block:Date}{/block:PermalinkPage}" data-pt="link">
                             <input id="post-notes-url" type="hidden" value="{PostNotesURL}">
                                 {block:PermalinkPage}<div class="post-left">{/block:PermalinkPage}
                                 <div class="inside">
@@ -1927,7 +2118,7 @@
           
                
                         {block:Chat}
-                        <article id="{PostID}" class="{block:IndexPage} ants-item-two post modal post-chat {block:Tags}{Tag} {/block:Tags}{/block:IndexPage} {block:PermalinkPage}{block:Date} post-single single-chat{/block:Date}{/block:PermalinkPage}" data-id="{PostID}" data-notes="{PostNotesURL}" data-pt="chat"> 
+                        <article id="{PostID}" class="{block:IndexPage} ants-item-two parsed post modal post-chat {block:Tags}{Tag} {/block:Tags}{/block:IndexPage} {block:PermalinkPage}{block:Date} post-single single-chat{/block:Date}{/block:PermalinkPage}" data-id="{PostID}" data-notes="{PostNotesURL}" data-pt="chat"> 
                         <input id="post-notes-url" type="hidden" value="{PostNotesURL}">
                             {block:PermalinkPage}<div class="post-left">{/block:PermalinkPage}
                             <div class="inside">
@@ -1941,13 +2132,13 @@
                         
                         
                         {block:Answer}
-                        <article id="{PostID}" class="{block:IndexPage} ants-item-two post post-answer {block:Tags}{Tag} {/block:Tags}{/block:IndexPage} {block:PermalinkPage}{block:Date} post-single single-answer{/block:Date}{/block:PermalinkPage}" data-id="{PostID}" data-notes="{PostNotesURL}" data-pt="answer">
+                        <article id="{PostID}" class="{block:IndexPage} ants-item-two parsed post post-answer {block:Tags}{Tag} {/block:Tags}{/block:IndexPage} {block:PermalinkPage}{block:Date} post-single single-answer{/block:Date}{/block:PermalinkPage}" data-id="{PostID}" data-notes="{PostNotesURL}" data-pt="answer">
                         <input id="post-notes-url" type="hidden" value="{PostNotesURL}">
                         {block:PermalinkPage}<div class="post-left">{/block:PermalinkPage}
                         <div class="inside">
                             <div class="content">
                             <div class="asker-box">
-                                <span class="the-asker">{Asker} {text:Translate asked Text}:</br></span> {Question}
+                             <img class="asker-avatar" src="{AskerPortraitURL-24}" /><span class="the-asker">{Asker}</span> {text:Translate asked Text}: {Question}
                             </div>
                             
                             <div class="answer">
@@ -2048,11 +2239,11 @@
     
     <!-- Header Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <script type="text/javascript" src="https://static.tumblr.com/jzzkxgh/x2Kqitw65/plugins.js">
+    <script type="text/javascript" src="https://static.tumblr.com/jzzkxgh/9STs077g9/plugins.js">
     </script>
 
-    <script type="text/javascript" src="https://static.tumblr.com/jzzkxgh/0Jhqitwh5/laser.js"></script>
-    {block:IfModalPost}<script src="https://static.tumblr.com/jzzkxgh/gGHq84cje/modal.js"></script>{/block:IfModalPost}
+    <script type="text/javascript" src="https://static.tumblr.com/jzzkxgh/Gi1s077g2/laser.js"></script>
+    {block:IfModalPost}<script src="https://static.tumblr.com/jzzkxgh/R7Ts073oy/modal.js"></script>{/block:IfModalPost}
 
     {block:IfTypeKitID}
         <!-- Typekit -->
@@ -2090,6 +2281,18 @@
                     var reblogSvg = $(this).find('svg.dual-reblog');
                     $(this).find("a.reblog_button").append(reblogSvg);
                 });
+                
+                // Reblogs
+                $( "article" ).each(function(i, v) {
+                    $(this).find('.tumblr_blog').closest('p').addClass('reblog-user');
+                    $( "p:contains('(via')" ).closest('p').empty();
+                });
+                
+                {block:IfNotShowPostReblogs}
+                $( "article" ).each(function(i, v) {
+                    $(this).find('.reblog-user').remove();
+                });
+                {/block:IfNotShowPostReblogs}
 
             });
 
@@ -2137,7 +2340,9 @@
                         masonryHorizontal: {
                             rowHeight: '.ants-sizer-two'
                         }
-                    });
+                    }); 
+                    
+                    stashFuel();
                     postsWidth = $('#stash-ants').outerWidth();
                     $('#stash-ants').isotope(true).isotope('layout');
                 });
@@ -2188,10 +2393,11 @@
                         scene.setTween(TweenMax.fromTo(currentPost, 0.4, { autoAlpha:0, ease: Expo.easeInOut},{autoAlpha:1, ease: Power2.easeInOut, force3D: true, className:"+=scrolled"}));
                     });
                         
+                    stashFuel();
                     $('.stash-photoset.ips').stashIPS();
                     $("article").fitVids();
                         
-                    $container.isotope( 'appended', $newElems, true );
+                    $container.isotope( 'appended', $newElems, true );  
                     postsLoading = false;
                     // TweenMax.fromTo(".loading-overlay", 1.2, {autoAlpha:1, xPercent:0, ease:Expo.easeInOut, force3D: true},{autoAlpha:0, xPercent:100, ease:Expo.easeInOut, force3D: true});
                     if(firstPostsLoad == true) {
@@ -2238,6 +2444,13 @@
                     var reblogSvg = $(this).find('svg.dual-reblog');
                     $(this).find("a.reblog_button").append(reblogSvg);
                 });
+                
+                // Remove Reblogs
+                $(this).find('.tumblr_blog').closest('p').addClass('reblog-user');
+                $( "p:contains('(via')" ).closest('p').remove();
+                {block:IfNotShowPostReblogs}
+                    $(this).find('.reblog-user').remove();
+                {/block:IfNotShowPostReblogs}
                 
                 var $newElemsIDs = $(newElements).map(function () { return this.id; }).get();
                 Tumblr.LikeButton.get_status_by_post_ids($newElemsIDs);
@@ -2337,36 +2550,16 @@
         <div class="get-started-overlay demo-overlay">
             <p><b>Enable mobile theme</b></br> On the Customize screen turn off the Use default mobile theme option under Advanced Options. </br><img src="https://static.tumblr.com/jzzkxgh/o2Yoomruj/default_mobile_theme.png" /></p>
             
-            <p><b>Add instagram feed</b></br> Enter your username in the "Instagram Username" box. </br><img src="https://static.tumblr.com/jzzkxgh/Uqsqi8zlv/insta-feed.jpg" /></p>
-            
             <p><b>Display avatar image</b></br> Upload an image to the "Header Avatar" option, square images work best. </br><img src="https://static.tumblr.com/jzzkxgh/Pnhqi7ltv/header-avatar-img.jpg" /></p>
             
             <p><b>Remove stash credit</b></br> Remove the stash logo from your website by getting a <a href="https://themes.stashfamily.com/add-ons/full-license" target="_blank">Full License</a>.</p>
             
-            <p><b>More help & customization</b></br> If you still need more check out our <a href="https://themes.stashfamily.com/help/" target="_blank">help section</a> or the <a href="https://themes.stashfamily.com/docs/ten-toes/" target="_blank">theme docs</a>.</p>
+            <p><b>Change Logo Image Height</b></br> Add Custom CSS under Advanced Options: <b>.logo img { max-height:200px; }</b></p>
+            
+            <p><b>More help & customization</b></br> If you still need more check out our <a href="https://themes.stashfamily.com/help/" target="_blank">help section</a> or the <a href="https://themes.stashfamily.com/docs/laser/" target="_blank">theme docs</a>.</p>
         </div>
     </div>
 
-
-    {block:IfInstagramUsername}
-        <script>
-            (function($) {
-                $.instagramFeed({
-                    'username': '{text:Instagram Username}',
-                    'container': "#instagram-feed",
-                    'display_profile': {block:IfInstagramFeedShowAvatar}true{/block:IfInstagramFeedShowAvatar}{block:IfNotInstagramFeedShowAvatar}false{/block:IfNotInstagramFeedShowAvatar},
-                    'display_biography': {block:IfInstagramFeedShowDescription}true{/block:IfInstagramFeedShowDescription}{block:IfNotInstagramFeedShowDescription}false{/block:IfNotInstagramFeedShowDescription},
-                    'display_gallery': true,
-                    'get_raw_json': false,
-                    'callback': null,
-                    'styling': true,
-                    'items': {text:Instagram Feed Photo Count},
-                    'items_per_row': 2,
-                    'margin': 1
-                });
-            })(jQuery); 
-        </script>
-    {/block:IfInstagramUsername}
 
 </body>
 </html>
