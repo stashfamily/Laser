@@ -1176,6 +1176,12 @@
             {
                 display:block;
             }
+            
+            body.index-page #stash-ants .post-photo .post-meta, 
+            body.index-page #stash-ants .post-photoset .post-meta, 
+            body.index-page #stash-ants .post-video .post-meta {
+                display:none;
+            }
         {/block:ifshowphotooverlay}            
 
         /** New **/
@@ -2239,7 +2245,7 @@
     
     <!-- Header Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <script type="text/javascript" src="https://static.tumblr.com/jzzkxgh/9STs077g9/plugins.js">
+    <script type="text/javascript" src="https://static.tumblr.com/evx2wil/Ymgs0avh6/plugins.js">
     </script>
 
     <script type="text/javascript" src="https://static.tumblr.com/jzzkxgh/Gi1s077g2/laser.js"></script>
@@ -2464,6 +2470,10 @@
                 $('.post').each(function(){
                     TweenMax.to(".post", 0.4, {autoAlpha:1, ease:Power2.easeOut});
                 });
+
+                setTimeout(function(){
+                    $('#stash-ants').isotope(true).isotope('layout');
+                }, 1200);
             }
         })(window.jQuery);
         
