@@ -2,7 +2,7 @@
 
 <!-- 
 
-    Laser v3
+    Laser v3.1
     by: Stashthemes
     
     - TikTok Icon
@@ -181,13 +181,6 @@
         <!-- Social Widgets -->
         <meta name="text:Sidebar Text Size" content="14px"/>
         <meta name="text:Sidebar Title Text Size" content="18px"/>
-        <meta name="text:Flickr Widget Title" content="Flickr">
-        <meta name="text:Flickr User ID" content="">
-        <meta name="text:Flickr Widget Feed Count" content="8">
-        <meta name="text:Dribbble Widget Title" content="Dribbble">
-        <meta name="text:Dribbble Widget Access Token" content="">
-        <meta name="text:Dribbble Widget Username" content="">
-        <meta name="text:Dribbble Widget Feed Count" content="8">
         
         <meta name="text:Sidebar Text Widget Title" content="">
         <meta name="text:Sidebar Text Widget" content="">
@@ -1041,16 +1034,16 @@
         
         .demo-note {
             position: fixed;
-            bottom: 0;
-            right:0;
-            background: black;
+            bottom: 20px;
+            right:20px;
+            background: #1b1b1b;
             font-size: 14px;
             text-align: left;
             line-height: 1;
             font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
             z-index: 999999;
             width:100%;
-            max-width:240px;
+            max-width:340px;
             opacity:0;
             visibility:hidden;
             transform:translateY(100%);
@@ -1069,12 +1062,12 @@
         }
         
         .demo-note nav {
-            text-transform:uppercase;
-            font-size:16px;
+            text-transform:normal;
+            font-size:15px;
+            padding: 15px;
         }
         
         .demo-note nav ul {
-            padding:0;
             margin:0;
         }
         
@@ -1082,11 +1075,6 @@
             float:left;
             list-style:none;
             width:100%;
-        }
-        
-        .demo-note nav ul li a {
-            padding:14px;
-            display:block;
         }
         
         .demo-note  a {
@@ -1100,19 +1088,37 @@
             transition:all 0.2s;
         }
         
+        .more-toggle {
+            cursor:pointer;
+            display:inline-block;
+        }
+        
+        .more-toggle i {
+            padding-left:3px;
+            transform:translateY(2px);
+        }
+        
         .get-started-toggle {
-            background:url('https://static.tumblr.com/jzzkxgh/Nn0qi7lym/glitter-og.gif');
+            background:#1b1b1b;
+            font-weight:600;
+            font-size:15px;
+            color:white;
         }
         
         .get-started-toggle a {
             color:white;
+            display:inline-block;
+            margin-right:10px;
         }
         
-        .demo-toggle.open .im {
+        .get-started-toggle a:hover, .more-toggle:hover {
+            opacity:0.6;
+        }
+        
+        .demo-toggle.open .fa {
             -webkit-transform:rotate(180deg);
             transform:rotate(180deg);
         }
-        
         .remove-stash-credit {
             background:white url('https://static.tumblr.com/jzzkxgh/Ud7ppcbpu/remove-stash-credit.gif');
             background-position:center center;
@@ -1136,10 +1142,10 @@
         }
 
         .demo-overlay.open {
-            margin-top:10px;
+            margin-top:15px;
             height:auto;
-            -webkit-transition:all 0.8s ease;
-            transition:all 0.8s ease;
+            -webkit-transition:all 0.3s ease;
+            transition:all 0.3s ease;
             opacity:1;
             visibility:visible;
             padding: 10px;
@@ -1341,6 +1347,19 @@
         body.index-page article.post-video .content video,
         body.index-page article.Youtube .content .tmblr-embed, body.index-page article.Vimeo .content .tmblr-embed {
             display:none !important;
+        }
+        
+        .sidebar-social ul li svg, .header-social ul li svg, .bluesky-icon svg {
+            height:13px;
+            width:auto;
+        }
+        
+        .x-icon {
+            height:11px;
+        }
+    
+        .sidebar-social ul li svg path, .header-social ul li svg path {
+            fill:{color:Sidebar Text};
         }
           
     </style>
@@ -1633,7 +1652,7 @@
                 
                 <nav class="sidebar-social widget cl">
                     <ul class="social-links-icons social-links">
-                        {block:ifTwitterURL}<li><a target="_blank" href="{text:Twitter URL}"><i class="fa-brands fa-twitter"></i></a></li>{/block:ifTwitterURL}
+                        {block:ifTwitterURL}<li><a target="_blank" href="{text:Twitter URL}"><svg class="x-icon" width="13.69" height="14" viewBox="0 0 1200 1227" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" fill="white"/></svg></a></li>{/block:ifTwitterURL}
                         {block:ifInstagramURL}<li><a target="_blank" href="{text:Instagram URL}"><i class="fa-brands fa-instagram"></i></a></li>{block:ifInstagramURL}
                         {block:ifFacebookURL}<li><a target="_blank" href="{text:Facebook URL}"><i class="fa-brands fa-facebook"></i></a></li>{/block:ifFacebookURL} 
                         {block:ifYoutubeURL}<li><a target="_blank" href="{text:Youtube URL}"><i class="fa-brands fa-youtube"></i></a></li>{/block:ifYoutubeURL}  
@@ -1728,17 +1747,6 @@
                         {block:ifsidebarimagead4link}</a>{/block:ifsidebarimagead4link}
                     </div>
                 {/block:ifsidebarimagead4image}
-                
-                {block:IfFlickrUserID}
-                    <div class="flickr widget cl"> <h3>{text:Flickr Widget Title}</h3> <ul class="flickr-feed social-widget"></ul> </div>
-                {/block:IfFlickrUserID}
-        
-                {block:IfDribbbleWidgetAccessToken}
-                <div class="dribbble widget cl"> 
-                    <h3>{text:Dribbble Widget Title}</h3> 
-                    <ul class="dribbble-feed social-widget"></ul> 
-                </div>
-                {/block:IfDribbbleWidgetAccessToken}
 
             </div>
             
@@ -1823,7 +1831,7 @@
             
             <nav class="header-social cl">
                 <ul class="social-links-icons social-links">
-                        {block:ifTwitterURL}<li><a target="_blank" href="{text:Twitter URL}"><i class="fa-brands fa-twitter"></i></a></li>{/block:ifTwitterURL}
+                        {block:ifTwitterURL}<li><a target="_blank" href="{text:Twitter URL}"><svg class="x-icon" width="13.69" height="14" viewBox="0 0 1200 1227" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" fill="white"/></svg></a></li>{/block:ifTwitterURL}
                         {block:ifInstagramURL}<li><a target="_blank" href="{text:Instagram URL}"><i class="fa-brands fa-instagram"></i></a></li>{block:ifInstagramURL}
                         {block:ifFacebookURL}<li><a target="_blank" href="{text:Facebook URL}"><i class="fa-brands fa-facebook"></i></a></li>{/block:ifFacebookURL} 
                         {block:ifYoutubeURL}<li><a target="_blank" href="{text:Youtube URL}"><i class="fa-brands fa-youtube"></i></a></li>{/block:ifYoutubeURL}  
@@ -2499,7 +2507,7 @@
             }
         });
         
-        $(document).on('click', '.get-started-toggle', function(){
+        $(document).on('click', '.more-toggle', function(){
             if ( $('.remove-stash-credit').hasClass( "open" ) ) {
                 $('.remove-stash-credit').removeClass('open');
                 $('.remove-stash-overlay').removeClass('open');
@@ -2517,62 +2525,37 @@
     </script>
     
     {block:IfGoogleAnalyticsID}
-    <script>
-        var _gaq=[['_setAccount','{text:Google Analytics ID}'],['_trackPageview']];
-        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>
-    {/block:IfGoogleAnalyticsID}
-    
-    <script>
-        {block:IfFlickrUserID}            
-            <!-- Flickr -->
-            var link_str = "link";
+        <!-- Google tag/Analytics (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id={text:Google Analytics ID}"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
             
-            $('.flickr-feed').jflickrfeed({
-            limit: {text:Flickr Widget Feed Count},
-            qstrings: {
-            id: '{text:Flickr User ID}'
-            },
-            itemTemplate: 
-            '<li>' +
-            '<a href="{{' + link_str + '}}"><img src="{{image_m}}" alt="{{title}}" /></a>' +
-            '</li>'
-            });
-        {/block:IfFlickrUserID}  
+            gtag('config', '{text:Google Analytics ID}');
+        </script>
+    {/block:IfGoogleAnalyticsID}
 
-
-        {block:IfDribbbleWidgetAccessToken}
-        $.jribbble.setToken('{text:Dribbble Widget Access Token}');
-        $.jribbble.users('{text:Dribbble Widget Username}').shots({per_page: 36}).then(function(shots) {
-          var html = [];
-          
-          shots.forEach(function(shot) {
-            html.push('<li class="shots--shot">');
-            html.push('<a href="' + shot.html_url + '" target="_blank">');
-            html.push('<img src="' + shot.images.normal + '">');
-            html.push('</a></li>');
-          });
-          
-          $('.dribbble-feed').html(html.join(''));
-        });
-        {/block:IfDribbbleWidgetAccessToken}
-    </script>
-
-    <div class='customize-demo demo-note'>
-        <nav class="cl"><ul><li class="get-started-toggle demo-toggle"><a><b>Get Started</b> <i class="im im-angle-down"></i></a></li></ul></nav>
+    <div class="customize-demo demo-note">
+        <nav class="cl"><ul>
+            <li class="get-started-toggle demo-toggle">
+            <a target="_blank" href="https://stashthemes.com/support">Support</a> 
+            <a target="_blank" href="https://stashthemes.com/themes/full-license/">Remove Branding</a> 
+            <span class="more-toggle">More<i class="fa fa-caret-up"></i></span>
+            </li></ul></nav>
         
         <div class="get-started-overlay demo-overlay">
             <p><b>Enable mobile theme</b></br> On the Customize screen turn off the Use default mobile theme option under Advanced Options. </br><img src="https://static.tumblr.com/jzzkxgh/o2Yoomruj/default_mobile_theme.png" /></p>
+            </br>
+            <!--<p><b>Add instagram feed</b></br> Enter your username in the "Instagram Username" box. </br><img src="https://static.tumblr.com/jzzkxgh/Uqsqi8zlv/insta-feed.jpg" /></p>-->
             
             <p><b>Display avatar image</b></br> Upload an image to the "Header Avatar" option, square images work best. </br><img src="https://static.tumblr.com/jzzkxgh/Pnhqi7ltv/header-avatar-img.jpg" /></p>
-            
-            <p><b>Remove stash credit</b></br> Remove the stash logo from your website by getting a <a href="https://themes.stashfamily.com/add-ons/full-license" target="_blank">Full License</a>.</p>
-            
-            <p><b>Change Logo Image Height</b></br> Add Custom CSS under Advanced Options: <b>.logo img { max-height:200px; }</b></p>
-            
-            <p><b>More help & customization</b></br> If you still need more check out our <a href="https://themes.stashfamily.com/help/" target="_blank">help section</a> or the <a href="https://themes.stashfamily.com/docs/laser/" target="_blank">theme docs</a>.</p>
+            </br>
+            <p><b>Remove stash credit</b></br> Remove the stash logo from your website by getting a <a href="https://stashthemes.com/themes/full-license" target="_blank">Full License</a>.</p>
+            </br>
+            <p><b>Customizations</b></br> You can see our customization options <a href="https://stashthemes.com/customizations">here</a> we can help with minor adjustments or if you would like to make major changes to your website. We can also code custom themes both on Tumblr and Wordpress.</p>
+            </br>
+            <p><b>More help</b></br> If you still need more check out our <a href="https://stashthemes.com/support/" target="_blank">help section</a> or the <a href="https://stashthemes.com/support/laser/" target="_blank">theme docs</a>. <a href="https://stashthemes.com/tumblr-themes/" target="_blank">View all our themes</a></p>
         </div>
     </div>
 
